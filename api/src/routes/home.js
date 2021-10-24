@@ -1,8 +1,15 @@
+const axios = require('axios');
 const { Router } = require('express');
 const router = Router();
 
-router.get("/", (req, res) => {
-    res.send("soy get home")
+router.get("/", async (req, res) => {
+    try {
+        let response = await axios.get("http://restcountries.com/v3.1/all")
+        let api = response.data
+        res.send(api)
+    } catch(err) {
+        console.error(err)
+    }
 })
 
 router.post("/", (req, res) => {
