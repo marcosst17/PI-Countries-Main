@@ -1,12 +1,32 @@
 const { Router } = require('express');
 const router = Router();
+const {Activity, Country} = require("../db")
 
 router.get("/", (req, res) => {
-    res.send("soy get activities")
+    return Activity.findAll({
+        include: Country
+    })
+    .then(activities => {
+        res.send(activities)
+    })
 })
 
-router.post("/", (req, res) => {
-    res.send("soy post activities")
+router.post("/", async (req, res, next) => {
+    const {name, difficulty, duration, season, countryId} = req.body
+    try {
+        let activity = await Activity.create({
+            name,
+            difficulty,
+            duration,
+            season,
+        })
+        if(countryId){
+            activity.addCountry(countryId)
+        }
+        return res.send(activity)
+    } catch(err) {
+        next(err)
+    }
 })
 
 router.put("/", (req, res) => {

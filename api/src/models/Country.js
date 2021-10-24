@@ -8,6 +8,12 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
       primaryKey: true,
+      // set(id){
+      //   this.setDataValue('id', id.toLowerCase());
+      // },
+      // get(id){
+      //   this.getDataValue('id', id.toUpperCase());
+      // }
     },
     name: {
       type: DataTypes.STRING,

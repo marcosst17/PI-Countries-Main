@@ -37,6 +37,9 @@ conn.sync({ force: true }).then(async () => {
             flag: country.flags.png,
             continent: country.continents ? country.continents[0] : "no tengo continent",
             capital: country.capital ? country.capital[0] : "no tengo capital",
+            subregion: country.subregion ? country.subregion : "no tengo subregion",
+            area: country.area,
+            population: country.population || 0,
           }
         }))
       } catch (err) {
