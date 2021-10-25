@@ -1,23 +1,18 @@
 const initialState = {
-    cities: []
+    countries: [],
+    filteredCountries: [],
 }
 
-const reducer = (state = initialState, action) => {
+// eslint-disable-next-line import/no-anonymous-default-export
+export default function reducer(state = initialState, action){
     switch(action.type){
-        case 'GET_CITIES':
-            return (
-                fetch("http://localhost:3001/countries")
-                .then(res => res.json())
-                .then(res => {
-                    return {
-                        ...state,
-                        cities: res
-                    }
-                })
-            )
+        case 'GET_COUNTRIES':
+            return {
+                ...state,
+                countries: action.payload
+            }
         default:
             return state
     }
 }
 
-export default reducer;
