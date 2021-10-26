@@ -11,7 +11,7 @@ router.get("/", (req, res) => {
             attributes: ["flag", "name", "continent"],
             where: {
                 name: {
-                    [Op.like]: `%${req.query.name}%`
+                    [Op.iLike]: `%${req.query.name}%`
                 }
             }
         })
