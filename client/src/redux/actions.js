@@ -19,3 +19,18 @@ export function fetchCities(){
         })
     }
 }
+
+export function searchCountries(search){
+    return function(dispatch){
+        axios.get("http://localhost:3001/countries?name="+search)
+        .then(countries => {
+            dispatch({
+                type: "SEARCH_COUNTRIES",
+                payload: countries.data
+            })
+        })
+        .catch(err => {
+            console.log(err)
+        })
+    }
+}

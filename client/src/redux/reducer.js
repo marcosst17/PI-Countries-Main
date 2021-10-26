@@ -11,6 +11,11 @@ export default function reducer(state = initialState, action){
                 ...state,
                 countries: action.payload
             }
+        case "SEARCH_COUNTRIES":
+            return {
+                ...state,
+                countries: action.payload
+            }
         default:
             return state
     }

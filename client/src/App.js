@@ -1,6 +1,7 @@
 import './App.css';
-import Example from './components/example';
+import Countries from './components/Countries';
 import { Route } from 'react-router';
+import SearchBar from './components/SearchBar';
 // import { useState } from 'react';
 // import axios from "axios";
 
@@ -20,9 +21,10 @@ function App() {
   return (
     <div className="App">
       <h1>Henry Countries</h1>
-      <Route exact path="/ciudades"
-      render={() => <Example/>}
-      />
+      <Route exact path="/ciudades">
+        <SearchBar/>
+        <Countries />
+      </Route>
     </div>
   );
 }
