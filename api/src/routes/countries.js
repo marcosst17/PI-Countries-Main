@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const { Op } = require('sequelize');
+const { Op, Sequelize } = require('sequelize');
 // const detailsRoute = require("./details")
 // const activitiesRoute = require("./activities")
 const {Country} = require("../db")
@@ -8,7 +8,8 @@ const router = Router();
 router.get("/", (req, res) => {
     if(req.query.name){
         return Country.findAll({
-            attributes: ["flag", "name", "continent"],
+            order: [['name', 'ASC']],
+            attributes: ["flag", "name", "continent", "id"],
             where: {
                 name: {
                     [Op.iLike]: `%${req.query.name}%`
@@ -17,13 +18,16 @@ router.get("/", (req, res) => {
         })
         .then(countries => {
             if(countries.length === 0) {
-                return res.send(`No countries found with name similar to ${req.query.name}`)
+                // return res.send(`No countries found with name similar to ${req.query.name}`)
+                return res.send([])
             }
             res.send(countries)
         })
     } else {
         return Country.findAll({
-            attributes: ["flag", "name", "continent"],
+            order: [Sequelize.fn('RANDOM')],
+            attributes: ["flag", "name", "continent", "id"],
+            limit: 10,
         })
         .then(countries => {
             res.send(countries)
@@ -34,7 +38,7 @@ router.get("/", (req, res) => {
 router.get("/:id", (req, res) => {
     const {id} = req.params
     return Country.findAll({
-        attributes: ["flag", "name", "continent"],
+        attributes: ["flag", "name", "continent", "id"],
         where: {
             id: id
         }

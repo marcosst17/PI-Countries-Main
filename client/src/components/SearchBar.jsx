@@ -1,8 +1,9 @@
 import {useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {searchCountries} from "../redux/actions"
+import {fetchCities, searchCountries} from "../redux/actions"
 export default function SearchBar(){
     // let countries = useSelector(state => state.countries);
+    // let filteredCountries = useSelector(state => state.filteredCountries);
     let dispatch = useDispatch()
     const [search, setSearch] = useState("");
 
@@ -14,6 +15,12 @@ export default function SearchBar(){
 
     function onInputChange(e){
         setSearch(e.target.value)
+        if(e.target.value.length > 0){
+            // filteredCountries = countries.filter(country => country.name.includes(e.target.value))
+            dispatch(searchCountries(search))
+        } else {
+            dispatch(fetchCities())
+        }
     }
 
     return (

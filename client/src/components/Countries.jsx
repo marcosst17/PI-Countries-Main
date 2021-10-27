@@ -7,6 +7,7 @@ import { fetchCities } from '../redux/actions';
 // import axios from 'axios';
 import { useDispatch, useSelector } from "react-redux"
 import Country from './Country';
+
 function Countries() {
     let countries = useSelector(state => state.countries);
     let dispatch = useDispatch()
@@ -14,13 +15,15 @@ function Countries() {
         dispatch(fetchCities())
     }, [])
     console.log(countries)
+    // if(countries.length === 0) return <div>Loading...</div>
      return (
         <div>
-        <h1>Example</h1>
-            {
-                countries.map(country => {
-                    return <Country name={country.name} flag={country.flag} id={country.id}/>
-                })
+            {   
+                countries.length > 0 ?
+                    countries.map(country => {
+                        return <Country name={country.name} flag={country.flag} id={country.id} continent={country.continent}/>
+                    })
+                : <h4>No countries found</h4>
             }
         </div>
     )

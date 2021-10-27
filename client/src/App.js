@@ -2,6 +2,7 @@ import './App.css';
 import Countries from './components/Countries';
 import { Route } from 'react-router';
 import SearchBar from './components/SearchBar';
+import Details from './components/Details';
 // import { useState } from 'react';
 // import axios from "axios";
 
@@ -21,9 +22,12 @@ function App() {
   return (
     <div className="App">
       <h1>Henry Countries</h1>
-      <Route exact path="/ciudades">
+      <Route exact path="/countries">
         <SearchBar/>
         <Countries />
+      </Route>
+      <Route path="/countries/:id/details">
+        <Details/>
       </Route>
     </div>
   );
