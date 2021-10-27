@@ -8,6 +8,7 @@ export default function Details(props){
     useEffect(() => {
         axios.get("http://localhost:3001/countries/" + params.id + "/details")
         .then(r => setDetails(r.data))
+        // eslint-disable-next-line
     }, [])
     console.log(details)
     return (
@@ -23,6 +24,8 @@ export default function Details(props){
                     <h2>Population: {details[0].population}</h2>
                     <h2>Area: {details[0].area}</h2>
                     <h2>ID: {details[0].id}</h2>
+                    {/* <h3>Activities : {details[0].activities[0].name}</h3> */}
+                    {details[0].activities.map(el => <h3 key={el.id}>{el.name}</h3>)}
                 </>
                 : <div>Loading...</div>
             }

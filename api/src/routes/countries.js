@@ -2,7 +2,7 @@ const { Router } = require('express');
 const { Op, Sequelize } = require('sequelize');
 // const detailsRoute = require("./details")
 // const activitiesRoute = require("./activities")
-const {Country} = require("../db")
+const {Country, Activity} = require("../db");
 const router = Router();
 
 router.get("/", (req, res) => {
@@ -12,7 +12,7 @@ router.get("/", (req, res) => {
             attributes: ["flag", "name", "continent", "id"],
             where: {
                 name: {
-                    [Op.iLike]: `%${req.query.name}%`
+                    [Op.iLike]: `${req.query.name}%`
                 }
             }
         })
@@ -40,7 +40,7 @@ router.get("/:id", (req, res) => {
     return Country.findAll({
         attributes: ["flag", "name", "continent", "id"],
         where: {
-            id: id
+            id: id.toUpperCase()
         }
     })
     .then(countries => {
@@ -51,9 +51,10 @@ router.get("/:id", (req, res) => {
 router.get("/:id/details", (req, res) => {
     const {id} = req.params
     return Country.findAll({
-        attributes: ["flag", "name", "continent", "capital", "id", "subregion", "area", "population"],
+        include: Activity,
+        // attributes: ["flag", "name", "continent", "capital", "id", "subregion", "area", "population"],
         where: {
-            id: id
+            id: id.toUpperCase()
         }
     })
     .then(countries => {

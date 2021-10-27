@@ -13,6 +13,7 @@ function Countries() {
     let dispatch = useDispatch()
     useEffect(() => {
         dispatch(fetchCities())
+        // eslint-disable-next-line
     }, [])
     console.log(countries)
     // if(countries.length === 0) return <div>Loading...</div>
@@ -21,7 +22,7 @@ function Countries() {
             {   
                 countries.length > 0 ?
                     countries.map(country => {
-                        return <Country name={country.name} flag={country.flag} id={country.id} continent={country.continent}/>
+                        return <Country name={country.name} flag={country.flag} id={country.id} continent={country.continent} key={country.id}/>
                     })
                 : <h4>No countries found</h4>
             }

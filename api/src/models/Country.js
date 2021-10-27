@@ -36,6 +36,9 @@ module.exports = (sequelize) => {
     },
     area: {
       type: DataTypes.INTEGER,
+      get(){
+        return this.getDataValue('area') + " Km2";
+      }
     },
     population: {
       type: DataTypes.INTEGER,

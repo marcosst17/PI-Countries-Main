@@ -21,7 +21,7 @@ router.post("/", async (req, res, next) => {
             season,
         })
         if(countryId){
-            activity.addCountry(countryId)
+            await activity.addCountry(countryId)
         }
         return res.send(activity)
     } catch(err) {
