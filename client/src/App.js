@@ -3,6 +3,7 @@ import Countries from './components/Countries';
 import { Route } from 'react-router';
 import SearchBar from './components/SearchBar';
 import Details from './components/Details';
+import ActivityForm from './components/ActivityForm';
 // import { useState } from 'react';
 // import axios from "axios";
 
@@ -28,6 +29,9 @@ function App() {
       </Route>
       <Route path="/countries/:id/details">
         <Details/>
+      </Route>
+      <Route path="/activities">
+        <ActivityForm/>
       </Route>
     </div>
   );
