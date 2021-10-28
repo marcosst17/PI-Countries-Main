@@ -25,7 +25,8 @@ router.get("/", (req, res) => {
         })
     } else {
         return Country.findAll({
-            order: [Sequelize.fn('RANDOM')],
+            // order: [Sequelize.fn('RANDOM')],
+            order: [['name', 'ASC']],
             attributes: ["flag", "name", "continent", "id"],
             limit: 10,
         })

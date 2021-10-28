@@ -41,3 +41,18 @@ export function searchCountries(search){
         })
     }
 }
+
+export function createActivity(activity){
+    return function(dispatch){
+        axios.post("http://localhost:3001/activities", activity)
+        .then(activity => {
+            dispatch({
+                type: "CREATE_ACTIVITY",
+                payload: activity.data
+            })
+        })
+        .catch(err => {
+            console.log(err)
+        })
+    }
+}

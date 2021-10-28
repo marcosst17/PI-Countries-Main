@@ -1,6 +1,7 @@
 const initialState = {
     countries: [],
     filteredCountries: [],
+    activities: [],
 }
 
 // eslint-disable-next-line import/no-anonymous-default-export
@@ -20,6 +21,11 @@ export default function reducer(state = initialState, action){
             return {
                 ...state,
                 countries: action.payload
+            }
+        case "CREATE_ACTIVITY":
+            return {
+                ...state,
+                activities: [...state.activities, action.payload]
             }
         default:
             return state

@@ -1,6 +1,6 @@
 import {useSelector, useDispatch} from 'react-redux';
 import {useEffect, useState} from 'react';
-import { getAllCountries } from '../redux/actions';
+import { getAllCountries, createActivity } from '../redux/actions';
 
 export default function ActivityForm(){
     let countries = useSelector(state => state.countries);
@@ -24,9 +24,14 @@ export default function ActivityForm(){
             [e.target.name]: e.target.value
         })
     }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        dispatch(createActivity(input))
+    }
     return (
         <div>
-            <form>
+            <form onSubmit={(e) => handleSubmit(e)}>
                 <label htmlFor="name">Name</label>
                 <input type="text" name="name" id="name" placeholder="I.e: Surfing" value={input.name} onChange={(e) => handleChange(e)} />
                 <label htmlFor="difficulty">Difficulty</label>
@@ -55,7 +60,7 @@ export default function ActivityForm(){
                         })
                     }
                 </select>
-                <button>Add country</button>
+                {/* <button>Add country</button> */}
                 <button type="submit">Submit</button>
             </form>
         </div>
