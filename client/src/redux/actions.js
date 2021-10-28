@@ -1,7 +1,14 @@
 import axios from "axios"
-export function getCountries() {
-    return {
-        type: "GET_COUNTRIES",
+export function getAllCountries() {
+    return function (dispatch){
+        axios.get("http://localhost:3001/countries/all")
+        .then(countries => {
+            dispatch({
+                type: "GET_ALL_COUNTRIES",
+                payload: countries.data
+            })
+        })
+        .catch(err => console.log(err))
     }
 }
 

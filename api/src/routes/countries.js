@@ -35,6 +35,16 @@ router.get("/", (req, res) => {
     }
 })
 
+router.get("/all", (req, res) => {
+    return Country.findAll({
+        order: [['name', 'ASC']],
+        attributes: ["flag", "name", "continent", "id"],
+    })
+    .then(countries => {
+        res.send(countries)
+    })
+})
+
 router.get("/:id", (req, res) => {
     const {id} = req.params
     return Country.findAll({
