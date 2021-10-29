@@ -1,0 +1,1 @@
+export const CTR_PER_PAGE = 9

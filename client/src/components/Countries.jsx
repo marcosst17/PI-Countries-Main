@@ -8,21 +8,27 @@ import { fetchCities } from '../redux/actions';
 import { useDispatch, useSelector } from "react-redux"
 import Country from './Country';
 import Pagination from './Pagination';
-
+import { CTR_PER_PAGE } from "../utils/constants"
 function Countries() {
     let countries = useSelector(state => state.countries);
-    let dispatch = useDispatch()
+    let pages = useSelector(state => state.pages);
+    // let dispatch = useDispatch()
     const [page, setPage] = useState(1);
-    const [totalPages, setTotalPages] = useState(0);
-    useEffect(() => {
-        dispatch(fetchCities())
-        // eslint-disable-next-line
-        setTotalPages(Math.ceil(countries.length / 10))
-    }, [])
-    const ctrPerPage = 10;
-    const startIndex = (page - 1) * ctrPerPage;
-    const selectedCtrs = countries.slice(startIndex, startIndex + ctrPerPage);
+    // const [totalPages, setTotalPages] = useState(0);
+    // componentWillMount()
+    // useEffect(() => {
+    //     // dispatch(fetchCities())
+    //     // setTotalPages(Math.ceil(countries.length / 10))
+    //     // eslint-disable-next-line
+    // }, [])
+    // const ctrPerPage = 9;
+    const startIndex = (page - 1) * CTR_PER_PAGE;
+    const selectedCtrs = countries.slice(startIndex, startIndex + CTR_PER_PAGE);
     console.log(countries.length)
+
+    const handlePageChange = (page) => {
+        setPage(page);
+    }
     // if(countries.length === 0) return <div>Loading...</div>
     //  return (
     //     <div>
@@ -37,13 +43,13 @@ function Countries() {
     // )
     return (
         <div>
+            <Pagination totalPages={pages} handlePageChange={handlePageChange} />
             {
                 selectedCtrs.length > 0 ? selectedCtrs.map(country => {
                     return <Country name={country.name} flag={country.flag} id={country.id} continent={country.continent} key={country.id}/>
                 })
                 : <h4>No countries found</h4>
             }
-            <Pagination totalPages={totalPages} />
         </div>
     )
 }

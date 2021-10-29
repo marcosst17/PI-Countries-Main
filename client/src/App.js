@@ -5,6 +5,9 @@ import SearchBar from './components/SearchBar';
 import Details from './components/Details';
 import ActivityForm from './components/ActivityForm';
 import Pagination from './components/Pagination';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { fetchCities } from './redux/actions';
 // import { useState } from 'react';
 // import axios from "axios";
 
@@ -21,6 +24,10 @@ function App() {
   //   return setCities(data);
   // }
   // Api();
+  let dispatch = useDispatch()
+  useEffect(() => {
+      dispatch(fetchCities())
+  }, [])
   return (
     <div className="App">
       <h1>Henry Countries</h1>

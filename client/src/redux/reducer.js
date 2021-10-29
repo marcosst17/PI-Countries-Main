@@ -1,3 +1,4 @@
+import { CTR_PER_PAGE } from "../utils/constants"
 const initialState = {
     countries: [],
     filteredCountries: [],
@@ -11,12 +12,14 @@ export default function reducer(state = initialState, action){
         case 'GET_COUNTRIES':
             return {
                 ...state,
-                countries: action.payload
+                countries: action.payload,
+                pages: Math.ceil(action.payload.length / CTR_PER_PAGE)
             }
         case "SEARCH_COUNTRIES":
             return {
                 ...state,
-                countries: action.payload
+                countries: action.payload,
+                pages: Math.ceil(action.payload.length / CTR_PER_PAGE)
             }
         case "GET_ALL_COUNTRIES":
             return {
