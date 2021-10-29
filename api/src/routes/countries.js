@@ -28,7 +28,7 @@ router.get("/", (req, res) => {
             // order: [Sequelize.fn('RANDOM')],
             order: [['name', 'ASC']],
             attributes: ["flag", "name", "continent", "id"],
-            limit: 10,
+            // limit: 10,
         })
         .then(countries => {
             res.send(countries)

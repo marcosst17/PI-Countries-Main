@@ -4,6 +4,7 @@ import { Route } from 'react-router';
 import SearchBar from './components/SearchBar';
 import Details from './components/Details';
 import ActivityForm from './components/ActivityForm';
+import Pagination from './components/Pagination';
 // import { useState } from 'react';
 // import axios from "axios";
 

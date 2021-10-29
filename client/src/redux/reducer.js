@@ -2,6 +2,7 @@ const initialState = {
     countries: [],
     filteredCountries: [],
     activities: [],
+    pages: [],
 }
 
 // eslint-disable-next-line import/no-anonymous-default-export
