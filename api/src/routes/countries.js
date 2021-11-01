@@ -39,7 +39,7 @@ router.get("/", (req, res) => {
 router.get("/all", (req, res) => {
     return Country.findAll({
         order: [['name', 'ASC']],
-        attributes: ["flag", "name", "continent", "id"],
+        attributes: ["flag", "name", "continent", "id", "population"],
     })
     .then(countries => {
         res.send(countries)
@@ -78,7 +78,7 @@ router.get("/continent/:name", (req, res) => {
     if(subregion){
         return Country.findAll({
             order: [['name', 'ASC']],
-            attributes: ["flag", "name", "continent", "id"],
+            attributes: ["flag", "name", "continent", "id", "population"],
             where: {
                 continent: req.params.name,
                 subregion: subregion
@@ -90,7 +90,7 @@ router.get("/continent/:name", (req, res) => {
     } else {
         return Country.findAll({
             order: [['name', 'ASC']],
-            attributes: ["flag", "name", "continent", "id"],
+            attributes: ["flag", "name", "continent", "id", "population"],
             where: {
                 continent: req.params.name,
             }

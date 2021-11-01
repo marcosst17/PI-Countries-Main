@@ -8,6 +8,7 @@ import Pagination from './components/Pagination';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchCities, getCountriesByContinent } from './redux/actions';
+import NavBar from './components/NavBar';
 // import { useState } from 'react';
 // import axios from "axios";
 
@@ -30,6 +31,7 @@ function App() {
   }, [])
   return (
     <div className="App">
+      <NavBar/>
       <h1>Henry Countries</h1>
       <Route exact path="/countries">
         {/* <SearchBar/> */}

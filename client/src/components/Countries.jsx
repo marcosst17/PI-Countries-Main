@@ -64,7 +64,7 @@ function Countries() {
         <div>
             <SearchBar handlePageChange={handlePageChange}/>
             <Filters handleFilter={handleFilter} handlePageChange={handlePageChange}/>
-            {/* <Orders handleSort={handleSort}/> */}
+            <Orders/>
             <div>
             <Pagination totalPages={pages} handlePageChange={handlePageChange} />
             {
