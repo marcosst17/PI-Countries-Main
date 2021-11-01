@@ -27,6 +27,29 @@ export function fetchCities(){
     }
 }
 
+export function getCountriesByContinent(continent){
+    return function (dispatch){
+        if(continent === "All"){
+            axios.get("http://localhost:3001/countries/all")
+            .then(countries => {
+                dispatch({
+                    type: "GET_ALL_COUNTRIES",
+                    payload: countries.data
+                })
+            })
+        } else {
+            axios.get(`http://localhost:3001/countries/continent/${continent}`)
+            .then(countries => {
+                dispatch({
+                    type: "GET_COUNTRIES_BY_CONTINENT",
+                    payload: countries.data
+                })
+            })
+            .catch(err => console.log(err))
+        }
+    }
+}
+
 export function searchCountries(search){
     return function(dispatch){
         axios.get("http://localhost:3001/countries?name="+search)

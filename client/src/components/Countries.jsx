@@ -3,16 +3,19 @@ import React, { useEffect, useState } from 'react';
 // import * as actionCreators from '../redux/actions';
 // import {connect} from 'react-redux';
 // import { bindActionCreators } from 'redux';
-import { fetchCities } from '../redux/actions';
+import { fetchCities, getCountriesByContinent } from '../redux/actions';
 // import axios from 'axios';
 import { useDispatch, useSelector } from "react-redux"
 import Country from './Country';
 import Pagination from './Pagination';
 import { CTR_PER_PAGE } from "../utils/constants"
+import SearchBar from './SearchBar';
+import Filters from './Filters';
+import Orders from './Orders';
 function Countries() {
     let countries = useSelector(state => state.countries);
     let pages = useSelector(state => state.pages);
-    // let dispatch = useDispatch()
+    let dispatch = useDispatch()
     const [page, setPage] = useState(1);
     // const [totalPages, setTotalPages] = useState(0);
     // componentWillMount()
@@ -29,6 +32,22 @@ function Countries() {
     const handlePageChange = (page) => {
         setPage(page);
     }
+
+    const handleFilter = (filter) => {
+        dispatch(getCountriesByContinent(filter))
+    }
+
+    // const handleSort = () => {
+    //     countries.sort((a, b) => {
+    //         if (a.name > b.name) {
+    //             return 1;
+    //         }
+    //         if (a.name < b.name) {
+    //             return -1;
+    //         }
+    //         return 0;
+    //     })
+    // }
     // if(countries.length === 0) return <div>Loading...</div>
     //  return (
     //     <div>
@@ -43,6 +62,10 @@ function Countries() {
     // )
     return (
         <div>
+            <SearchBar handlePageChange={handlePageChange}/>
+            <Filters handleFilter={handleFilter} handlePageChange={handlePageChange}/>
+            {/* <Orders handleSort={handleSort}/> */}
+            <div>
             <Pagination totalPages={pages} handlePageChange={handlePageChange} />
             {
                 selectedCtrs.length > 0 ? selectedCtrs.map(country => {
@@ -50,6 +73,7 @@ function Countries() {
                 })
                 : <h4>No countries found</h4>
             }
+            </div>
         </div>
     )
 }

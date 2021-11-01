@@ -77,7 +77,8 @@ router.get("/continent/:name", (req, res) => {
     const {subregion} = req.query
     if(subregion){
         return Country.findAll({
-            attributes: ["flag", "name", "continent"],
+            order: [['name', 'ASC']],
+            attributes: ["flag", "name", "continent", "id"],
             where: {
                 continent: req.params.name,
                 subregion: subregion
@@ -88,7 +89,8 @@ router.get("/continent/:name", (req, res) => {
         })
     } else {
         return Country.findAll({
-            attributes: ["flag", "name", "continent"],
+            order: [['name', 'ASC']],
+            attributes: ["flag", "name", "continent", "id"],
             where: {
                 continent: req.params.name,
             }

@@ -1,13 +1,13 @@
 import './App.css';
 import Countries from './components/Countries';
 import { Route } from 'react-router';
-import SearchBar from './components/SearchBar';
+// import SearchBar from './components/SearchBar';
 import Details from './components/Details';
 import ActivityForm from './components/ActivityForm';
 import Pagination from './components/Pagination';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { fetchCities } from './redux/actions';
+import { fetchCities, getCountriesByContinent } from './redux/actions';
 // import { useState } from 'react';
 // import axios from "axios";
 
@@ -26,13 +26,13 @@ function App() {
   // Api();
   let dispatch = useDispatch()
   useEffect(() => {
-      dispatch(fetchCities())
+      dispatch(getCountriesByContinent("All"))
   }, [])
   return (
     <div className="App">
       <h1>Henry Countries</h1>
       <Route exact path="/countries">
-        <SearchBar/>
+        {/* <SearchBar/> */}
         <Countries />
       </Route>
       <Route path="/countries/:id/details">

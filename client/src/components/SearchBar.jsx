@@ -1,7 +1,9 @@
 import {useEffect, useState} from "react";
 import { useDispatch, /*useSelector*/ } from "react-redux";
 import {/*fetchCities,*/ searchCountries} from "../redux/actions"
-export default function SearchBar(){
+
+
+export default function SearchBar({handlePageChange}){
     // let countries = useSelector(state => state.countries);
     // let filteredCountries = useSelector(state => state.filteredCountries);
     let dispatch = useDispatch()
@@ -22,6 +24,7 @@ export default function SearchBar(){
         //     dispatch(fetchCities())
         // }
         setSearch(e.target.value)
+        handlePageChange(1)
     }
     
     useEffect(() => {

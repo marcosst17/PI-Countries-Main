@@ -24,12 +24,19 @@ export default function reducer(state = initialState, action){
         case "GET_ALL_COUNTRIES":
             return {
                 ...state,
-                countries: action.payload
+                countries: action.payload,
+                pages: Math.ceil(action.payload.length / CTR_PER_PAGE)
             }
         case "CREATE_ACTIVITY":
             return {
                 ...state,
                 activities: [...state.activities, action.payload]
+            }
+        case "GET_COUNTRIES_BY_CONTINENT":
+            return {
+                ...state,
+                countries: action.payload,
+                pages: Math.ceil(action.payload.length / CTR_PER_PAGE)
             }
         default:
             return state
