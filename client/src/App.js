@@ -7,7 +7,7 @@ import ActivityForm from './components/ActivityForm';
 import Pagination from './components/Pagination';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { fetchCities, getCountriesByContinent } from './redux/actions';
+import { fetchCities, getCountriesByContinent, testing } from './redux/actions';
 import NavBar from './components/NavBar';
 // import { useState } from 'react';
 // import axios from "axios";

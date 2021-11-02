@@ -3,7 +3,7 @@ import { useDispatch, /*useSelector*/ } from "react-redux";
 import {/*fetchCities,*/ searchCountries} from "../redux/actions"
 
 
-export default function SearchBar({handlePageChange}){
+export default function SearchBar({handlePageChange, handleComposeSearch}){
     // let countries = useSelector(state => state.countries);
     // let filteredCountries = useSelector(state => state.filteredCountries);
     let dispatch = useDispatch()
@@ -11,8 +11,9 @@ export default function SearchBar({handlePageChange}){
 
     function onSubmit(e){
         e.preventDefault()
-        dispatch(searchCountries(search))
-        setSearch("")
+        /* dispatch(searchCountries(search)) */
+        /* handleComposeSearch(e)
+        setSearch("") */
     }
 
     function onInputChange(e){
@@ -24,19 +25,20 @@ export default function SearchBar({handlePageChange}){
         //     dispatch(fetchCities())
         // }
         setSearch(e.target.value)
+        handleComposeSearch(e)
         handlePageChange(1)
     }
     
-    useEffect(() => {
+    /* useEffect(() => {
         dispatch(searchCountries(search))
         // eslint-disable-next-line
-    }, [search]) 
+    }, [search])  */
     
     return (
         <div>
             <form onSubmit={onSubmit}>
-            <input type="text" placeholder="Search" onChange={onInputChange} value={search}/>
-            <button type="submit" value="Search">Search</button>
+            <input type="text" placeholder="Search" onChange={onInputChange} value={search} name="searchBar"/>
+            {/* <button type="submit" value="Search">Search</button> */}
             </form>
         </div>
     )

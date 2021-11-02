@@ -79,3 +79,19 @@ export function createActivity(activity){
         })
     }
 }
+
+
+export function testing(search, continent, param, order) {
+    return function(dispatch){
+        axios.get(`http://localhost:3001/countries/testing?continent=${continent}&param=${param}&order=${order}&search=${search}`)
+        .then(countries => {
+            dispatch({
+                type: "GET_COUNTRIES_BY_CONTINENT",
+                payload: countries.data
+            })
+        })
+        .catch(err => {
+            console.log(err)
+        })
+    }
+}

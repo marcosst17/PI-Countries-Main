@@ -36,6 +36,125 @@ router.get("/", (req, res) => {
     }
 })
 
+router.get("/testing", (req, res) => {
+    const {search, continent, order, param} = req.query
+    if(search){
+        if(continent === "All" || !continent){
+            if(order && param){
+                return Country.findAll({
+                    where: {
+                        name: {
+                            [Op.iLike]: `${search}%`
+                        }
+                    },
+                    order: [[param, order]],
+                    attributes: ["flag", "name", "continent", "id", "population"]
+                })
+                .then(countries => {
+                    return res.send(countries)
+                })
+            } else {
+                return Country.findAll({
+                    where: {
+                        name: {
+                            [Op.iLike]: `${search}%`
+                        }
+                    },
+                    order: [["name", "ASC"]],
+                    attributes: ["flag", "name", "continent", "id", "population"]
+                })
+                .then(countries => {
+                    return res.send(countries)
+                })
+            }
+        }
+        if(continent){
+            if(order && param){
+                return Country.findAll({
+                    where: {
+                        continent: continent,
+                        name: {
+                            [Op.iLike]: `${search}%`
+                        }
+                        
+                    },
+                    order: [[param, order]],
+                    attributes: ["flag", "name", "continent", "id", "population"]
+                })
+                .then(countries => {
+                   return res.send(countries)
+                })
+            } else {
+                return Country.findAll({
+                    where: {
+                        continent: continent,
+                        name: {
+                            [Op.iLike]: `${search}%`
+                        }
+                    },
+                    order: [["name", "ASC"]],
+                    attributes: ["flag", "name", "continent", "id", "population"]
+                })
+                .then(countries => {
+                    return res.send(countries)
+                })
+            }
+        }
+    } else {
+        if(continent === "All"){
+            if(order && param){
+                return Country.findAll({
+                    order: [[param, order]],
+                    attributes: ["flag", "name", "continent", "id", "population"]
+                })
+                .then(countries => {
+                    return res.send(countries)
+                })
+            } else {
+                return Country.findAll({
+                    order: [["name", "ASC"]],
+                    attributes: ["flag", "name", "continent", "id", "population"]
+                })
+                .then(countries => {
+                    return res.send(countries)
+                })
+            }
+        }
+        if(continent){
+            if(order && param){
+                return Country.findAll({
+                    where: {
+                        continent: continent
+                    },
+                    order: [[param, order]],
+                    attributes: ["flag", "name", "continent", "id", "population"]
+                })
+                .then(countries => {
+                   return res.send(countries)
+                })
+            } else {
+                return Country.findAll({
+                    where: {
+                        continent: continent
+                    },
+                    order: [["name", "ASC"]],
+                    attributes: ["flag", "name", "continent", "id", "population"]
+                })
+                .then(countries => {
+                    return res.send(countries)
+                })
+            }
+        }
+    }
+    return Country.findAll({
+        order: [["name", "ASC"]],
+        attributes: ["flag", "name", "continent", "id", "population"]
+    })
+    .then(countries => {
+        return res.send(countries)
+    })
+})
+
 router.get("/all", (req, res) => {
     return Country.findAll({
         order: [['name', 'ASC']],

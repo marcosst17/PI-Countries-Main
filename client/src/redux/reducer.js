@@ -42,7 +42,7 @@ export default function reducer(state = initialState, action){
             }
         case "NAME_ORDER":
             const orderByName =
-            action.payload === "name_asc" ?
+            action.payload === "name_ASC" ?
             state.copiaCountries.sort((a,b) => {
                 if(a.name < b.name) return -1
                 if(a.name > b.name) return 1
@@ -60,7 +60,7 @@ export default function reducer(state = initialState, action){
             }
         case "POPULATION_ORDER":
             const orderByPopulation =
-            action.payload === "pop_asc" ?
+            action.payload === "population_ASC" ?
             state.copiaCountries.sort((a,b) => {
                 if(a.population < b.population) return -1
                 if(a.population > b.population) return 1

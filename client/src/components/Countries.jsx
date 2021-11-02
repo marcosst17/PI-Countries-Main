@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 // import * as actionCreators from '../redux/actions';
 // import {connect} from 'react-redux';
 // import { bindActionCreators } from 'redux';
-import { fetchCities, getCountriesByContinent } from '../redux/actions';
+import { fetchCities, getCountriesByContinent, testing } from '../redux/actions';
 // import axios from 'axios';
 import { useDispatch, useSelector } from "react-redux"
 import Country from './Country';
@@ -33,9 +33,36 @@ function Countries() {
         setPage(page);
     }
 
-    const handleFilter = (filter) => {
+    /* const handleFilter = (filter) => {
         dispatch(getCountriesByContinent(filter))
+    } */
+
+    const [composeSearch, setComposeSearch] = useState({
+        searchBar: "",
+        continent: "",
+        param: "",
+        order: ""
+    })
+
+    const handleComposeSearch = (e) => {
+        if(e.target.value.split("_").length === 2){
+            let split = e.target.value.split("_")
+            setComposeSearch({
+                ...composeSearch,
+                param: split[0],
+                order: split[1]
+            })
+        } else {
+            setComposeSearch({
+                ...composeSearch,
+                [e.target.name]: e.target.value
+            })
+        }
     }
+
+    useEffect(() => {
+        dispatch(testing(composeSearch.searchBar, composeSearch.continent, composeSearch.param, composeSearch.order))
+    }, [composeSearch])
 
     // const handleSort = () => {
     //     countries.sort((a, b) => {
@@ -62,9 +89,9 @@ function Countries() {
     // )
     return (
         <div>
-            <SearchBar handlePageChange={handlePageChange}/>
-            <Filters handleFilter={handleFilter} handlePageChange={handlePageChange}/>
-            <Orders/>
+            <SearchBar handlePageChange={handlePageChange} handleComposeSearch={handleComposeSearch}/>
+            <Filters /* handleFilter={handleFilter} */ handlePageChange={handlePageChange} handleComposeSearch={handleComposeSearch}/>
+            <Orders handleComposeSearch={handleComposeSearch}/>
             <div>
             <Pagination totalPages={pages} handlePageChange={handlePageChange} />
             {

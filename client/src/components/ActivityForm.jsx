@@ -28,7 +28,6 @@ export default function ActivityForm(){
     }
 
     const handleCountryId = (e) => {
-        console.log(e.target.value)
         setInput({
             ...input,
             countryId: [...input.countryId, e.target.value]
@@ -76,7 +75,6 @@ export default function ActivityForm(){
                     <option value="autumn">Autumn</option>
                 </select>
                 <label htmlFor="countryId">Country</label>
-                {/* <input type="text" name="country" id="country" placeholder="I.e: Spain" /> */}
                 <select name="countryId" value={input.countryId} onChange={(e) => handleCountryId(e)} required>
                     <option value="" selected disabled hidden>Select a Country</option>
                     {
@@ -99,7 +97,6 @@ export default function ActivityForm(){
                     })
                     : <></>
                 }
-                {/* <button type="button" onClick={e => handleCountryId(e)} value={input.countryId}>Add country</button> */}
                 <button type="submit">Submit</button>
             </form>
         </div>
