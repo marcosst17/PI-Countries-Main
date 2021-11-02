@@ -1,5 +1,5 @@
 import axios from "axios"
-export function getAllCountries() {
+export function getAllCountries() { // EN EL FORM
     return function (dispatch){
         axios.get("http://localhost:3001/countries/all")
         .then(countries => {
@@ -12,7 +12,7 @@ export function getAllCountries() {
     }
 }
 
-export function fetchCities(){
+/* export function fetchCities(){
     return function (dispatch){
         axios.get("http://localhost:3001/countries")
         .then(countries => {
@@ -25,9 +25,9 @@ export function fetchCities(){
             console.log(err)
         })
     }
-}
+} */
 
-export function getCountriesByContinent(continent){
+export function getCountriesByContinent(continent){  // EN APP
     return function (dispatch){
         if(continent === "All"){
             axios.get("http://localhost:3001/countries/all")
@@ -50,7 +50,7 @@ export function getCountriesByContinent(continent){
     }
 }
 
-export function searchCountries(search){
+/* export function searchCountries(search){  // NUNCA
     return function(dispatch){
         axios.get("http://localhost:3001/countries?name="+search)
         .then(countries => {
@@ -63,9 +63,9 @@ export function searchCountries(search){
             console.log(err)
         })
     }
-}
+} */
 
-export function createActivity(activity){
+export function createActivity(activity){ // EN EL FORM
     return function(dispatch){
         axios.post("http://localhost:3001/activities", activity)
         .then(activity => {
@@ -81,13 +81,13 @@ export function createActivity(activity){
 }
 
 
-export function testing(search, continent, param, order) {
+export function testing(search, continent, param, order, activities) {
     return function(dispatch){
-        axios.get(`http://localhost:3001/countries/testing?continent=${continent}&param=${param}&order=${order}&search=${search}`)
+        axios.get(`http://localhost:3001/countries/testing?continent=${continent}&param=${param}&order=${order}&search=${search}&activities=${activities}`)
         .then(countries => {
             dispatch({
                 type: "GET_COUNTRIES_BY_CONTINENT",
-                payload: countries.data
+                payload: {countries: countries.data, order: {[param]: order}}
             })
         })
         .catch(err => {

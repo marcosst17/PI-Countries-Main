@@ -12,6 +12,8 @@ import { CTR_PER_PAGE } from "../utils/constants"
 import SearchBar from './SearchBar';
 import Filters from './Filters';
 import Orders from './Orders';
+import FilterByActivity from './FilterByActivity';
+import axios from 'axios';
 function Countries() {
     let countries = useSelector(state => state.countries);
     let pages = useSelector(state => state.pages);
@@ -27,7 +29,7 @@ function Countries() {
     // const ctrPerPage = 9;
     const startIndex = (page - 1) * CTR_PER_PAGE;
     const selectedCtrs = countries.slice(startIndex, startIndex + CTR_PER_PAGE);
-    console.log(countries.length)
+    // console.log(countries.length)
 
     const handlePageChange = (page) => {
         setPage(page);
@@ -41,10 +43,12 @@ function Countries() {
         searchBar: "",
         continent: "",
         param: "",
-        order: ""
+        order: "",
+        activities: []
     })
 
     const handleComposeSearch = (e) => {
+        console.log(e.target.value)
         if(e.target.value.split("_").length === 2){
             let split = e.target.value.split("_")
             setComposeSearch({
@@ -59,11 +63,57 @@ function Countries() {
             })
         }
     }
+    
+    // let copyCountries = useSelector(state => state.copiaCountries)
+    /* console.log(copyCountries)
+    let test = copyCountries.filter(el => el.activities.find(el => el.name === "Testing"))
+    console.log(test) */
+    const [activitySt, setActivitySt] = useState([])
+    useEffect(() => {
+        axios.get("http://localhost:3001/activities")
+        .then(act => {
+            let mapped = act.data.map(el => el.name)
+            setActivitySt(mapped)
+        })
+    }, [])
+    // console.log(activitySt)
 
     useEffect(() => {
-        dispatch(testing(composeSearch.searchBar, composeSearch.continent, composeSearch.param, composeSearch.order))
+        let joinedActivities = composeSearch.activities.join("_")
+        // console.log(joinedActivities)
+        dispatch(testing(composeSearch.searchBar, composeSearch.continent, composeSearch.param, composeSearch.order, joinedActivities))
     }, [composeSearch])
 
+    // const [selectedAct, setSelectedAct] = useState([])
+    
+    const handleFilterAct = (e) => {
+        /* let found = selectedAct.find(el => el === e.target.value)
+        if(found){
+            let deleted = selectedAct.filter(el => el !== e.target.value)
+            setSelectedAct(deleted)
+        } else {
+            setSelectedAct([...selectedAct, e.target.value])
+        } */
+        let found2 = composeSearch.activities.find(el => el === e.target.value)
+        if(found2){
+            console.log("entre al if");
+            let deleted2 = composeSearch.activities.filter(el => el !== e.target.value)
+            setComposeSearch({
+                ...composeSearch,
+                activities: deleted2
+            })
+        } else {
+            console.log("entre al else")
+            setComposeSearch({
+                ...composeSearch,
+                activities: [...composeSearch.activities, e.target.value]
+            })
+        }
+        // setComposeSearch({
+        //     ...composeSearch,
+        //     activities: [...composeSearch.activities, found2]
+        // })
+    }
     // const handleSort = () => {
     //     countries.sort((a, b) => {
     //         if (a.name > b.name) {
@@ -92,6 +142,7 @@ function Countries() {
             <SearchBar handlePageChange={handlePageChange} handleComposeSearch={handleComposeSearch}/>
             <Filters /* handleFilter={handleFilter} */ handlePageChange={handlePageChange} handleComposeSearch={handleComposeSearch}/>
             <Orders handleComposeSearch={handleComposeSearch}/>
+            <FilterByActivity activitySt={activitySt} handleFilterAct={handleFilterAct}/>
             <div>
             <Pagination totalPages={pages} handlePageChange={handlePageChange} />
             {

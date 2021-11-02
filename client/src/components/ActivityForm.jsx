@@ -28,12 +28,15 @@ export default function ActivityForm(){
     }
 
     const handleCountryId = (e) => {
-        setInput({
-            ...input,
-            countryId: [...input.countryId, e.target.value]
-        })
-        const found = countries.find(el => el.id === e.target.value)
-        setCountry([...country, found])
+        const alreadyExists = input.countryId.find(el => el === e.target.value)
+        if(!alreadyExists){
+            setInput({
+                ...input,
+                countryId: [...input.countryId, e.target.value]
+            })
+            const found = countries.find(el => el.id === e.target.value)
+            setCountry([...country, found])
+        } 
     }
 
     const handleDeleteCountry = (id) => {
