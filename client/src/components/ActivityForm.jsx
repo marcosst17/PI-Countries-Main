@@ -51,6 +51,14 @@ export default function ActivityForm(){
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(createActivity(input))
+        setInput({
+            name: "",
+            duration: "",
+            difficulty: "",
+            season: "",
+            countryId: [],
+        })
+        setCountry([])
         alert("Activity Created")
     }
     return (

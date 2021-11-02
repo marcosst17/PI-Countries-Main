@@ -41,7 +41,7 @@ export function getCountriesByContinent(continent){  // EN APP
             axios.get(`http://localhost:3001/countries/continent/${continent}`)
             .then(countries => {
                 dispatch({
-                    type: "GET_COUNTRIES_BY_CONTINENT",
+                    type: "GET_COUNTRIES_BY_CONTINENT_ORDER_NAME",
                     payload: countries.data
                 })
             })
@@ -85,10 +85,17 @@ export function testing(search, continent, param, order, activities) {
     return function(dispatch){
         axios.get(`http://localhost:3001/countries/testing?continent=${continent}&param=${param}&order=${order}&search=${search}&activities=${activities}`)
         .then(countries => {
-            dispatch({
-                type: "GET_COUNTRIES_BY_CONTINENT",
-                payload: {countries: countries.data, order: {[param]: order}}
-            })
+            if(param === "population"){
+                dispatch({
+                    type: "GET_COUNTRIES_BY_CONTINENT_ORDER_POPULATION",
+                    payload: {countries: countries.data, order: {[param]: order}}
+                })
+            } else {
+                dispatch({
+                    type: "GET_COUNTRIES_BY_CONTINENT_ORDER_NAME",
+                    payload: {countries: countries.data, order: {[param]: order}}
+                })
+            }
         })
         .catch(err => {
             console.log(err)

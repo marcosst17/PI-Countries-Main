@@ -34,67 +34,118 @@ export default function reducer(state = initialState, action){
                 ...state,
                 activities: [...state.activities, action.payload]
             }
-        case "GET_COUNTRIES_BY_CONTINENT":
-            console.log(action.payload)
-            switch(action.payload.order){
-                case {"name": "ASC"}:
-                    console.log("entre al name: asc")
-                    const nameAsc = action.payload.countries.sort((a,b) => {
-                        if(a.name < b.name) return -1
-                        if(a.name > b.name) return 1
-                        return 0
-                    })
-                    return {
-                        ...state,
-                        countries: [...nameAsc],
-                        pages: Math.ceil(action.payload.countries.length / CTR_PER_PAGE)
-                    }
-                case {name: "DESC"}:
-                    const nameDesc = action.payload.countries.sort((a,b) => {
-                        if(a.name > b.name) return -1
-                        if(a.name < b.name) return 1
-                        return 0
-                    })
-                    return {
-                        ...state,
-                        countries: [...nameDesc],
-                        pages: Math.ceil(action.payload.countries.length / CTR_PER_PAGE)
-                    }
-                case {population: "ASC"}:
-                    const popAsc = action.payload.countries.sort((a,b) => {
-                        if(a.population < b.population) return -1
-                        if(a.population > b.population) return 1
-                        return 0
-                    })
-                    return {
-                        ...state,
-                        countries: [...popAsc],
-                        pages: Math.ceil(action.payload.countries.length / CTR_PER_PAGE)
-                    }
-                case {population: "DESC"}:
-                    const popDesc = action.payload.countries.sort((a,b) => {
-                        if(a.population > b.population) return -1
-                        if(a.population < b.population) return 1
-                        return 0
-                    })
-                    return {
-                        ...state,
-                        countries: [...popDesc],
-                        pages: Math.ceil(action.payload.countries.length / CTR_PER_PAGE)
-                    }
-                default: 
-                console.log("default")
-                const defaultOrder = action.payload.countries.sort((a,b) => {
-                    if(a.name < b.name) return -1
-                    if(a.name > b.name) return 1
+        case "GET_COUNTRIES_BY_CONTINENT_ORDER_NAME":
+            if(action.payload.order.name === "DESC"){
+                console.log("entre al order name desc")
+                const nameDesc = action.payload.countries.sort((a,b) => {
+                    if(a.name < b.name) return 1
+                    if(a.name > b.name) return -1
                     return 0
                 })
                 return {
                     ...state,
-                    countries: [...defaultOrder],
+                    countries: [...nameDesc],
+                    pages: Math.ceil(action.payload.countries.length / CTR_PER_PAGE)
+                }
+            } else {
+                console.log("entre al order name asc");
+                const nameAsc = action.payload.countries.sort((a,b) => {
+                    if(a.name > b.name) return 1
+                    if(a.name < b.name) return -1
+                    return 0
+                })
+                return {
+                    ...state,
+                    countries: [...nameAsc],
                     pages: Math.ceil(action.payload.countries.length / CTR_PER_PAGE)
                 }
             }
+        case "GET_COUNTRIES_BY_CONTINENT_ORDER_POPULATION":
+            if(action.payload.order.population === "ASC"){
+                console.log("entre al order pop asc");
+                const popAsc = action.payload.countries.sort((a,b) => {
+                    if(a.population < b.population) return -1
+                    if(a.population > b.population) return 1
+                    return 0
+                })
+                return {
+                    ...state,
+                    countries: [...popAsc],
+                    pages: Math.ceil(action.payload.countries.length / CTR_PER_PAGE)
+                }
+            } else {
+                console.log("entre al order pop desc");
+                const popDesc = action.payload.countries.sort((a,b) => {
+                    if(a.population > b.population) return -1
+                    if(a.population < b.population) return 1
+                    return 0
+                })
+                return {
+                    ...state,
+                    countries: [...popDesc],
+                    pages: Math.ceil(action.payload.countries.length / CTR_PER_PAGE)
+                }
+            }
+            // console.log(action.payload)
+            // switch(action.payload.order){
+            //     case {name: "ASC"}:
+            //         console.log("entre al name: asc")
+            //         const nameAsc = action.payload.countries.sort((a,b) => {
+            //             if(a.name < b.name) return -1
+            //             if(a.name > b.name) return 1
+            //             return 0
+            //         })
+            //         return {
+            //             ...state,
+            //             countries: [...nameAsc],
+            //             pages: Math.ceil(action.payload.countries.length / CTR_PER_PAGE)
+            //         }
+            //     case {name: "DESC"}:
+            //         const nameDesc = action.payload.countries.sort((a,b) => {
+            //             if(a.name > b.name) return -1
+            //             if(a.name < b.name) return 1
+            //             return 0
+            //         })
+            //         return {
+            //             ...state,
+            //             countries: [...nameDesc],
+            //             pages: Math.ceil(action.payload.countries.length / CTR_PER_PAGE)
+            //         }
+            //     case {population: "ASC"}:
+            //         const popAsc = action.payload.countries.sort((a,b) => {
+            //             if(a.population < b.population) return -1
+            //             if(a.population > b.population) return 1
+            //             return 0
+            //         })
+            //         return {
+            //             ...state,
+            //             countries: [...popAsc],
+            //             pages: Math.ceil(action.payload.countries.length / CTR_PER_PAGE)
+            //         }
+            //     case {population: "DESC"}:
+            //         const popDesc = action.payload.countries.sort((a,b) => {
+            //             if(a.population > b.population) return -1
+            //             if(a.population < b.population) return 1
+            //             return 0
+            //         })
+            //         return {
+            //             ...state,
+            //             countries: [...popDesc],
+            //             pages: Math.ceil(action.payload.countries.length / CTR_PER_PAGE)
+            //         }
+            //     default: 
+            //     console.log("default")
+            //     const defaultOrder = action.payload.countries.sort((a,b) => {
+            //         if(a.name < b.name) return -1
+            //         if(a.name > b.name) return 1
+            //         return 0
+            //     })
+            //     return {
+            //         ...state,
+            //         countries: [...defaultOrder],
+            //         pages: Math.ceil(action.payload.countries.length / CTR_PER_PAGE)
+            //     }
+            // }
             /* return {
                 ...state,
                 countries: action.payload.countries,

@@ -48,6 +48,7 @@ router.get("/testing", (req, res) => {
     if(activities.length > 0 && activities.split("_").length > 1){
         activities = activities.split("_")
     }
+    console.log(activities)
     if(activities !== "%"){
         return Country.findAll({
             where: {
