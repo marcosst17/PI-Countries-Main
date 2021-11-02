@@ -38,7 +38,9 @@ export default function Details(props){
                     details.length > 0 ?
                     details[0].activities.map(el => {
                         return (
-                            <h3 key={el.id}>{el.name}</h3>
+                            <div>
+                                <h3 key={el.id}>{el.name}</h3>
+                            </div>
                         )
                     })
                     : <div>Loading...</div>

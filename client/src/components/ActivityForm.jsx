@@ -15,8 +15,10 @@ export default function ActivityForm(){
         duration: "",
         difficulty: "",
         season: "",
-        countryId: "",
+        countryId: [],
     })
+
+    const [country, setCountry] = useState([])
 
     const handleChange = (e) => {
         setInput({
@@ -25,17 +27,38 @@ export default function ActivityForm(){
         })
     }
 
+    const handleCountryId = (e) => {
+        console.log(e.target.value)
+        setInput({
+            ...input,
+            countryId: [...input.countryId, e.target.value]
+        })
+        const found = countries.find(el => el.id === e.target.value)
+        setCountry([...country, found])
+    }
+
+    const handleDeleteCountry = (id) => {
+        setInput({
+            ...input,
+            countryId: input.countryId.filter(el => el !== id)
+        })
+        let filtered = country.filter(el => el.id !== id)
+        setCountry(filtered)
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(createActivity(input))
+        alert("Activity Created")
     }
     return (
         <div>
             <form onSubmit={(e) => handleSubmit(e)}>
                 <label htmlFor="name">Name</label>
-                <input type="text" name="name" id="name" placeholder="I.e: Surfing" value={input.name} onChange={(e) => handleChange(e)} />
+                <input type="text" name="name" id="name" placeholder="I.e: Surfing" value={input.name} onChange={(e) => handleChange(e)} required />
                 <label htmlFor="difficulty">Difficulty</label>
-                <select name="difficulty" id="difficulty" value={input.difficulty} onChange={(e) => handleChange(e)}>
+                <select name="difficulty" id="difficulty" value={input.difficulty} onChange={(e) => handleChange(e)} required>
+                    <option value="" selected disabled >Select a difficulty</option>
                     <option value="1">Very Easy</option>
                     <option value="2">Easy</option>
                     <option value="3">Medium</option>
@@ -43,9 +66,10 @@ export default function ActivityForm(){
                     <option value="5">Very Hard</option>
                 </select>
                 <label htmlFor="duration">Duration</label>
-                <input type="text" name="duration" id="duration" placeholder="I.e: 2 weeks" value={input.duration} onChange={handleChange} />
+                <input type="text" name="duration" id="duration" placeholder="I.e: 2 weeks" value={input.duration} onChange={(e) => handleChange(e)}/>
                 <label htmlFor="season">Season</label>
-                <select name="season" id="season" value={input.season} onChange={handleChange} >
+                <select name="season" id="season" value={input.season} onChange={(e) => handleChange(e)} required>
+                    <option value="" selected disabled >Select a season</option>
                     <option value="winter">Winter</option>
                     <option value="spring">Spring</option>
                     <option value="summer">Summer</option>
@@ -53,14 +77,29 @@ export default function ActivityForm(){
                 </select>
                 <label htmlFor="countryId">Country</label>
                 {/* <input type="text" name="country" id="country" placeholder="I.e: Spain" /> */}
-                <select name="countryId" id="country" value={input.countryId} onChange={handleChange} >
+                <select name="countryId" value={input.countryId} onChange={(e) => handleCountryId(e)} required>
+                    <option value="" selected disabled hidden>Select a Country</option>
                     {
                         countries.map(country => {
-                            return <option key={country.id} value={country.id}>{country.name}</option>
+                            return <option key={country.id} value={country.id}>{country.name} ({country.id})</option>
                         })
                     }
                 </select>
-                {/* <button>Add country</button> */}
+                <hr/>
+                <p>Selected countries:</p>
+                {
+                    country.length > 0 ?
+                    country.map(el => {
+                        return (
+                            <div key={el.id}>
+                                <p key={el.id}>{el.name}</p>
+                                <button onClick={() => handleDeleteCountry(el.id)}>X</button>
+                            </div>
+                        )
+                    })
+                    : <></>
+                }
+                {/* <button type="button" onClick={e => handleCountryId(e)} value={input.countryId}>Add country</button> */}
                 <button type="submit">Submit</button>
             </form>
         </div>

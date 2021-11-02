@@ -38,7 +38,6 @@ export default function reducer(state = initialState, action){
             return {
                 ...state,
                 countries: action.payload,
-                copiaCountries: action.payload,
                 pages: Math.ceil(action.payload.length / CTR_PER_PAGE)
             }
         case "NAME_ORDER":
