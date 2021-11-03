@@ -2,7 +2,7 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router"
 
-export default function Details(props){
+export default function Details(){
     let params = useParams()
     const [details, setDetails] = useState({})
     useEffect(() => {

@@ -18,17 +18,18 @@ export default function FilterByActivity({activitySt, handleFilterAct}){
     }, []) */
     /* console.log(activitySt) */
     return (
-        <div>
+        <div style={{"width": "100%"}}>
             <p>Filter Activities</p>
 
             {
                 activitySt.length > 0 ?
                 activitySt.map(el => {
                     return (
-                        <>
-                            <input type="checkbox" name="activities" value={el} id={el} onChange={handleFilterAct}></input>
-                            <label htmlFor={el} className="label">{el}</label>
-                        </>
+                        <div className="checksContainer">
+                            <input className="checkBox" type="checkbox" name="activities" value={el} id={el} onChange={handleFilterAct}></input>
+                            <label htmlFor={el} className="labelAct">{el}</label>
+                            <br/>
+                        </div>
                     )
                 })
                 : <></>
