@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 // import * as actionCreators from '../redux/actions';
 // import {connect} from 'react-redux';
 // import { bindActionCreators } from 'redux';
-import { fetchCities, getCountriesByContinent, testing } from '../redux/actions';
+import { /* fetchCities, getCountriesByContinent,  */allRoutes } from '../redux/actions';
 // import axios from 'axios';
 import { useDispatch, useSelector } from "react-redux"
 import Country from './Country';
@@ -14,6 +14,7 @@ import Filters from './Filters';
 import Orders from './Orders';
 import FilterByActivity from './FilterByActivity';
 import axios from 'axios';
+import "../styles/countriesGrl.css";
 function Countries() {
     let countries = useSelector(state => state.countries);
     let pages = useSelector(state => state.pages);
@@ -81,7 +82,7 @@ function Countries() {
     useEffect(() => {
         let joinedActivities = composeSearch.activities.join("_")
         // console.log(joinedActivities)
-        dispatch(testing(composeSearch.searchBar, composeSearch.continent, composeSearch.param, composeSearch.order, joinedActivities))
+        dispatch(allRoutes(composeSearch.searchBar, composeSearch.continent, composeSearch.param, composeSearch.order, joinedActivities))
     }, [composeSearch])
 
     // const [selectedAct, setSelectedAct] = useState([])
@@ -138,19 +139,29 @@ function Countries() {
     //     </div>
     // )
     return (
-        <div>
-            <SearchBar handlePageChange={handlePageChange} handleComposeSearch={handleComposeSearch}/>
-            <Filters /* handleFilter={handleFilter} */ handlePageChange={handlePageChange} handleComposeSearch={handleComposeSearch}/>
-            <Orders handleComposeSearch={handleComposeSearch}/>
-            <FilterByActivity activitySt={activitySt} handleFilterAct={handleFilterAct}/>
-            <div>
-            <Pagination totalPages={pages} handlePageChange={handlePageChange} />
-            {
-                selectedCtrs.length > 0 ? selectedCtrs.map(country => {
-                    return <Country name={country.name} flag={country.flag} id={country.id} continent={country.continent} key={country.id}/>
-                })
-                : <h4>No countries found</h4>
-            }
+        <div className="allContainer">
+            <div className="ordersContainer">
+                <div className="searchContainer">
+                    <SearchBar handlePageChange={handlePageChange} handleComposeSearch={handleComposeSearch}/>
+                </div>
+                <div className="filtersContainer">
+                    <Filters /* handleFilter={handleFilter} */ handlePageChange={handlePageChange} handleComposeSearch={handleComposeSearch}/>
+                    <Orders handleComposeSearch={handleComposeSearch}/>
+                </div>
+                <div className="activityContainer">
+                    <FilterByActivity activitySt={activitySt} handleFilterAct={handleFilterAct}/>
+                </div>
+            </div>
+            <div className="paginationContainer">
+                <Pagination totalPages={pages} handlePageChange={handlePageChange} />
+            </div>
+            <div className="countriesContainer">
+                {
+                    selectedCtrs.length > 0 ? selectedCtrs.map(country => {
+                        return <Country name={country.name} flag={country.flag} id={country.id} continent={country.continent} key={country.id}/>
+                    })
+                    : <h4>No countries found</h4>
+                }
             </div>
         </div>
     )

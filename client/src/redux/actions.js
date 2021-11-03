@@ -81,9 +81,9 @@ export function createActivity(activity){ // EN EL FORM
 }
 
 
-export function testing(search, continent, param, order, activities) {
+export function allRoutes(search, continent, param, order, activities) {
     return function(dispatch){
-        axios.get(`http://localhost:3001/countries/testing?continent=${continent}&param=${param}&order=${order}&search=${search}&activities=${activities}`)
+        axios.get(`http://localhost:3001/countries?continent=${continent}&param=${param}&order=${order}&search=${search}&activities=${activities}`)
         .then(countries => {
             if(param === "population"){
                 dispatch({

@@ -27,7 +27,7 @@ export default function FilterByActivity({activitySt, handleFilterAct}){
                     return (
                         <>
                             <input type="checkbox" name="activities" value={el} id={el} onChange={handleFilterAct}></input>
-                            <label htmlFor={el}>{el}</label>
+                            <label htmlFor={el} className="label">{el}</label>
                         </>
                     )
                 })

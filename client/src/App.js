@@ -32,7 +32,6 @@ function App() {
   return (
     <div className="App">
       <NavBar/>
-      <h1>Henry Countries</h1>
       <Route exact path="/countries">
         {/* <SearchBar/> */}
         <Countries />

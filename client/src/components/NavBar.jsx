@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { getCountriesByContinent } from "../redux/actions";
+import "../styles/navbar.css"
 
 
 export default function NavBar() {
@@ -12,15 +13,15 @@ export default function NavBar() {
     }
 
     return (
-        <div>
-            <Link to="/">
-            <p>Home</p>
+        <div className="navBar">
+            <Link to="/" className="navLinks">
+                <p>Home</p>
             </Link>
-            <Link to="/countries" onClick={handleReset}>
-            <p>Countries</p>
+            <Link to="/countries" onClick={handleReset} className="navLinks">
+                <p>Countries</p>
             </Link>
-            <Link to="/activities">
-            <p>Activities</p>
+            <Link to="/activities" className="navLinks">
+                <p>Create Activity</p>
             </Link>
         </div>
     )

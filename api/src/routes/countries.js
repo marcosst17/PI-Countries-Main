@@ -5,7 +5,7 @@ const { Op, Sequelize } = require('sequelize');
 const {Country, Activity} = require("../db");
 const router = Router();
 
-router.get("/", (req, res) => {
+/* router.get("/", (req, res) => {
     if(req.query.name){
         return Country.findAll({
             order: [['name', 'ASC']],
@@ -36,9 +36,9 @@ router.get("/", (req, res) => {
             res.send(countries)
         })
     }
-})
+}) */
 
-router.get("/testing", (req, res) => {
+router.get("/", (req, res) => {
     // const {search, continent, order, param} = req.query
     const search = req.query.search || ""
     const continent = req.query.continent || {[Op.iLike]: "%"}

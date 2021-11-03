@@ -1,0 +1,17 @@
+.navBar {
+    /* background-color: white; */
+    display: flex;
+    justify-content: space-around;
+    padding-left: 4rem;
+    margin-bottom: 1rem;
+    /* background-color: red; */
+    /* background-color: rgba(255, 255, 255, 0.2) */
+}
+
+.navLinks {
+    text-decoration: none;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px black;
+}
