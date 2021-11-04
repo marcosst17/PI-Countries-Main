@@ -2,6 +2,7 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router"
 import { Link } from "react-router-dom";
+import "../styles/details.css"
 export default function Details(){
     let params = useParams()
     const [details, setDetails] = useState({})
@@ -18,15 +19,18 @@ export default function Details(){
     }
     // console.log(details)
     return (
-        <div>
-            <div>
+        <div className="detailsMain">
+            <div className="detailsContainer">
                 
-                <h2>Details:</h2>
+                <h2 className="fixedD">DETAILS</h2>
                 {
                     details.length > 0 ?
                     <>
-                        <h1>{details[0].name}</h1>
-                        <img src={details[0].flag} alt="No Flag on Record"/>
+                        <h1 className="nameCountry">{details[0].name}</h1>
+                        <div className="flagsContainer">
+                            <img src={details[0].flag} alt="No Flag on Record"/>
+                            <img src={details[0].coatOfArms} alt="No Coat of Arms on Record" className="coat"/>
+                        </div>
                         <h2>Continent: {details[0].continent}</h2>
                         <h2>Subregion: {details[0].subregion}</h2>
                         <h2>Capital: {details[0].capital}</h2>
@@ -52,15 +56,15 @@ export default function Details(){
                             </h2>
                         </div>
                         <h2>Has access to the sea: {details[0].landLocked}</h2>
-                        <img src={details[0].coatOfArms} alt="No Coat of Arms on Record"/>
+                        
                     </>
                     : <div>Loading...</div>
                 }
             </div>
-            <hr/>
-            <div>
+            {/* <hr/> */}
+            <div className="activitiesContainer">
                 {/* <h3>Activities : {details[0].activities[0].name}</h3> */}
-                <h2>Activities:</h2>
+                <h2 className="fixedA">ACTIVITIES</h2>
                 {
                     details.length > 0 ?
                     details[0].activities.map(el => {

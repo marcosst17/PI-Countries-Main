@@ -1,0 +1,75 @@
+.detailsMain {
+    display: flex;
+    margin: 0 auto;
+    width: 98vw;
+    height: 90vh;
+    /* overflow-y: auto; */
+}
+
+.detailsContainer {
+    float: left;
+    width: 50vw;
+    /* display: flex; */
+    text-align: center;
+    margin-right: 10px;
+    overflow-y: auto;
+    background: -webkit-radial-gradient(#10305810, #0a0011);
+    border-radius: 30px;
+}
+
+.activitiesContainer {
+    float: right;
+    width: 48vw;
+    margin-left: 10px;
+    overflow-y: auto;
+    background: -webkit-radial-gradient(#10305810, #0a0011);
+    border-radius: 30px;
+}
+
+.flagsContainer {
+    width: 70%;
+    display: flex;
+    margin: 0 auto;
+    justify-content: space-around;
+}
+
+.flagsContainer .coat {
+    width: 200px;
+}
+
+.flagsContainer img {
+    max-width: 300px;
+    max-height: 200px;
+    border-radius: 15px;
+}
+
+.fixedA {
+    position: fixed;
+    /* display: grid;
+    left: 1360px; */
+    background: rgba(98, 119, 235, 0.4);
+    width: 48vw;
+    margin-top: 0;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.6);
+    color: rgb(98, 119, 235);
+}
+
+.fixedD {
+    position: fixed;
+    /* display: grid;
+    left: 450px; */
+    width: 48.6vw;
+    background: rgba(98, 119, 235, 0.4);
+    margin-top: 0;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.6);
+    color: rgb(98, 119, 235);
+}
+
+.nameCountry {
+    margin-top: 5rem;
+    margin-bottom: 3rem;
+}

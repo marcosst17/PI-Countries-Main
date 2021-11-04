@@ -8,6 +8,7 @@
     padding-top: 1rem;
     padding-bottom: 1rem;
     background: -webkit-radial-gradient(#10305810, #0a0011);
+    border-radius: 15px;
 }
 
 .ordersContainer {
@@ -31,6 +32,7 @@
     flex-wrap: wrap;
     justify-content: center; */
     background: -webkit-radial-gradient(#10305810, #0a0011);
+    border-radius: 15px;
 }
 
 .continent {
@@ -64,7 +66,7 @@
     border: 2px solid #444;
     border-radius: 4px;
     color: black;
-    margin: 0 5px;
+    margin: 0 21px;
     width: 150px;
 }
 
@@ -89,6 +91,8 @@
  /*    position: absolute;
     top: 90vh; */
     /* margin: 0 auto; */
+    background: -webkit-radial-gradient(#10305810, #0a0011);
+    border-radius: 15px;
 }
 
 .paginationContainer button {
@@ -117,6 +121,7 @@
     flex-wrap:nowrap;
     margin-top: 1rem;
     background: -webkit-radial-gradient(#10305810, #0a0011);
+    border-radius: 15px;
 }
 
 .activityContainer .labelAct {
