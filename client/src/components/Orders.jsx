@@ -19,7 +19,7 @@ export default function Orders({handleComposeSearch}){
 
     return (
         <div>
-            <p>Order By:</p>
+            <p className="mainText">ORDER BY</p>
             <select onChange={e => handleSort(e)} defaultValue="ASC">
                 <option value="name_ASC">Name Asc</option>
                 <option value="name_DESC">Name Desc</option>

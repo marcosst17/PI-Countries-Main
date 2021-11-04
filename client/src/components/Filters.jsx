@@ -9,7 +9,7 @@ export default function Filters({handlePageChange, handleComposeSearch}){
 
     return (
         <div>
-            <p>Filter Countries By:</p>
+            <p className="mainText continent">FILTER BY CONTINENT</p>
             <div>
                 <input className="input" type="radio" name="continent" value="All" id="all" onClick={(e) => handleFiltering(e)} defaultChecked/>
                 <label htmlFor="all" className="label">All</label>

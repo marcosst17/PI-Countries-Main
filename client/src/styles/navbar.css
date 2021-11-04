@@ -1,17 +1,25 @@
 .navBar {
     /* background-color: white; */
     display: flex;
-    justify-content: space-around;
-    padding-left: 4rem;
+    justify-content: space-between;
+    padding-left: 6rem;
+    padding-right: 6rem;
     margin-bottom: 1rem;
     /* background-color: red; */
     /* background-color: rgba(255, 255, 255, 0.2) */
+    background: -webkit-radial-gradient(#10305810, #0a0011);
+}
+
+.navCountries {
+    margin-left: 7rem;
 }
 
 .navLinks {
     text-decoration: none;
-    color: white;
-    font-size: 1.1rem;
+    /* color: white; */
+    font-size: 1.3rem;
     font-weight: bold;
-    text-shadow: 1px 1px 3px black;
+    /* text-shadow: 1px 1px 3px black; */
+    text-shadow: 1px 1px 2px rgb(105, 116, 69);
+    color: rgb(98, 119, 235);
 }

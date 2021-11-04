@@ -40,6 +40,10 @@ conn.sync({ force: true }).then(async () => {
             subregion: country.subregion ? country.subregion : "No Subregion on Record",
             area: country.area,
             population: country.population || 0,
+            timezone: country.timezones,
+            coatOfArms: country.coatOfArms.png || "No Coat of Arms on Record",
+            borders: country.borders ? country.borders : ["No Borders"],
+            landLocked: country.landlocked ? "No" : "Yes"
           }
         }))
       } catch (err) {

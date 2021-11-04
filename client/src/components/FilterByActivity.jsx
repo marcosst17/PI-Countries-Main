@@ -19,7 +19,7 @@ export default function FilterByActivity({activitySt, handleFilterAct}){
     /* console.log(activitySt) */
     return (
         <div style={{"width": "100%"}}>
-            <p>Filter Activities</p>
+            <p className="mainText">FILTER BY ACTIVITY</p>
 
             {
                 activitySt.length > 0 ?

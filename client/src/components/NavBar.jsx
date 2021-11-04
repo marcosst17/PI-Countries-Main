@@ -15,13 +15,13 @@ export default function NavBar() {
     return (
         <div className="navBar">
             <Link to="/" className="navLinks">
-                <p>Home</p>
+                <p>HOME</p>
             </Link>
             <Link to="/countries" onClick={handleReset} className="navLinks">
-                <p>Countries</p>
+                <p className="navCountries">COUNTRIES</p>
             </Link>
             <Link to="/activities" className="navLinks">
-                <p>Create Activity</p>
+                <p>CREATE ACTIVITY</p>
             </Link>
         </div>
     )

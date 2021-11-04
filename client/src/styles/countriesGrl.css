@@ -7,6 +7,7 @@
     margin-top: 1rem;
     padding-top: 1rem;
     padding-bottom: 1rem;
+    background: -webkit-radial-gradient(#10305810, #0a0011);
 }
 
 .ordersContainer {
@@ -16,6 +17,7 @@
     width: 25vw;
     height: 89vh;
     float: left;
+    
 }
 
 .filtersContainer {
@@ -28,6 +30,11 @@
 /*     display: flex;
     flex-wrap: wrap;
     justify-content: center; */
+    background: -webkit-radial-gradient(#10305810, #0a0011);
+}
+
+.continent {
+    margin-top: 5px;
 }
 
 /* .filtersContainer .label {
@@ -62,12 +69,12 @@
 }
 
 .ordersContainer input:checked + .label {
-    background-color:#bfb;
-    border-color: #4c4;
+    background-color:rgb(98, 119, 235);
+    border-color: rgb(105, 116, 69);
 }
 
 .ordersContainer .label:hover {
-    background-color: #dfd;
+    background-color: rgb(146, 155, 206);
 }
 
 .paginationContainer {
@@ -100,22 +107,6 @@
     overflow-y: auto;
 }
 
-.countriesContainer .link {
-    text-decoration: none;
-}
-
-.countriesContainer h1 {
-    color: white;
-}
-
-.countriesContainer h2 {
-    color: white;
-}
-
-.countriesContainer img {
-    width: 300px;
-}
-
 .activityContainer {
     /* background: rgb(170,75,237);
     background: linear-gradient(16deg, rgba(170,75,237,0.3) 0%, rgba(148,50,148,0.3) 26%, rgba(20,12,20,0.3) 81%, rgba(20,12,20,0.3) 100%); */
@@ -125,6 +116,7 @@
     justify-content:start;
     flex-wrap:nowrap;
     margin-top: 1rem;
+    background: -webkit-radial-gradient(#10305810, #0a0011);
 }
 
 .activityContainer .labelAct {
@@ -143,5 +135,12 @@
 
 .checksContainer {
     display: flex;
+    background: -webkit-radial-gradient(#10305810, #0a0011);
+}
 
+.mainText {
+    color: rgb(98, 119, 235);
+    text-shadow: 1px 1px 2px rgb(105, 116, 69);
+    font-weight: bold;
+    font-size: 1.2rem;
 }

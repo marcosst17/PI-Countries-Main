@@ -6,7 +6,6 @@ import React, { useEffect, useState } from 'react';
 import { /* fetchCities, getCountriesByContinent,  */allRoutes } from '../redux/actions';
 // import axios from 'axios';
 import { useDispatch, useSelector } from "react-redux"
-import Country from './Country';
 import Pagination from './Pagination';
 import { CTR_PER_PAGE } from "../utils/constants"
 import SearchBar from './SearchBar';
@@ -15,6 +14,8 @@ import Orders from './Orders';
 import FilterByActivity from './FilterByActivity';
 import axios from 'axios';
 import "../styles/countriesGrl.css";
+// import "../styles/countriesCard.css";
+import Country from './Country';
 function Countries() {
     let countries = useSelector(state => state.countries);
     let pages = useSelector(state => state.pages);
@@ -152,16 +153,16 @@ function Countries() {
                     <FilterByActivity activitySt={activitySt} handleFilterAct={handleFilterAct}/>
                 </div>
             </div>
-            <div className="paginationContainer">
-                <Pagination totalPages={pages} handlePageChange={handlePageChange} />
-            </div>
             <div className="countriesContainer">
                 {
                     selectedCtrs.length > 0 ? selectedCtrs.map(country => {
-                        return <Country name={country.name} flag={country.flag} id={country.id} continent={country.continent} key={country.id}/>
+                        return <Country name={country.name} flag={country.flag} id={country.id} continent={country.continent} key={country.id} population={country.population}/>
                     })
                     : <h4>No countries found</h4>
                 }
+            </div>
+            <div className="paginationContainer">
+                <Pagination totalPages={pages} handlePageChange={handlePageChange} />
             </div>
         </div>
     )

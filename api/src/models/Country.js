@@ -42,6 +42,21 @@ module.exports = (sequelize) => {
     },
     population: {
       type: DataTypes.INTEGER,
+    },
+    timezone: {
+      type: DataTypes.ARRAY(DataTypes.STRING),
+      get(){
+        return this.getDataValue('timezone').join(", ")
+      }
+    },
+    coatOfArms: {
+      type: DataTypes.STRING,
+    },
+    borders: {
+      type: DataTypes.ARRAY(DataTypes.STRING),
+    },
+    landLocked: {
+      type: DataTypes.STRING
     }
   }, {
     timestamps: false
