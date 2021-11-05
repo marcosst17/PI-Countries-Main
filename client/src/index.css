@@ -21,7 +21,7 @@ animation: append-animate 0.75s linear;
 
 body {
   margin: 0;
-  font-family: 'Balsamiq Sans', 'Comfortaa', cursive, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Roboto', 'Balsamiq Sans', 'Comfortaa', cursive, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;

@@ -6,18 +6,29 @@ import "../styles/details.css"
 export default function Details(){
     let params = useParams()
     const [details, setDetails] = useState({})
+    const [borders, setBorders] = useState([])
     useEffect(() => {
-        axios.get("http://localhost:3001/countries/" + params.id + "/details")
-        .then(r => setDetails(r.data))
+        async function fetchDetailsAndBorders(){
+            let response = await axios.get("http://localhost:3001/countries/" + params.id + "/details")
+            let data = response.data
+            setDetails(data)
+            let queries = data[0].borders[0] !== "No Borders" ? data[0].borders.join("_") : ""
+            let response2 = await axios.get("http://localhost:3001/countries/borders?borders="+queries)
+            let borderResponse = response2.data
+            console.log(borderResponse)
+            setBorders(borderResponse)
+        }
+        fetchDetailsAndBorders()
         // eslint-disable-next-line
     }, [])
 
+
     const handleBorders = (e) => {
-        console.log(e)
-        axios.get("http://localhost:3001/countries/"+e.target.innerHTML+"/details")
+        console.log(e.target)
+        axios.get("http://localhost:3001/countries/"+e.target.id+"/details")
         .then(r => setDetails(r.data))
     }
-    // console.log(details)
+
     return (
         <div className="detailsMain">
             <div className="detailsContainer">
@@ -31,31 +42,55 @@ export default function Details(){
                             <img src={details[0].flag} alt="No Flag on Record"/>
                             <img src={details[0].coatOfArms} alt="No Coat of Arms on Record" className="coat"/>
                         </div>
-                        <h2>Continent: {details[0].continent}</h2>
-                        <h2>Subregion: {details[0].subregion}</h2>
-                        <h2>Capital: {details[0].capital}</h2>
-                        <h2>Population: {details[0].population}</h2>
-                        <h2>Area: {details[0].area}</h2>
-                        <h2>ID: {details[0].id}</h2>
-                        <h2>Timezones: {details[0].timezone}</h2>
-                        <div>
+                        <div className="infoContainer">
+                            <div className="infoDivs">
+                                <h2>Continent: </h2>
+                                <h2 className="theContent">{details[0].continent}</h2>
+                            </div>
+                            <div className="infoDivs">
+                                <h2>Subregion: </h2>
+                                <h2 className="theContent">{details[0].subregion}</h2>
+                            </div>
+                            <div className="infoDivs">
+                                <h2>Capital: </h2>
+                                <h2 className="theContent">{details[0].capital}</h2>
+                            </div>
+                            <div className="infoDivs">
+                                <h2>Population: </h2>
+                                <h2 className="theContent">{details[0].population}</h2>
+                            </div>
+                            <div className="infoDivs">
+                                <h2>Area: </h2>
+                                <h2 className="theContent">{details[0].area}</h2>
+                            </div>
+                            <div className="infoDivs">
+                                <h2>ID: </h2>
+                                <h2 className="theContent">{details[0].id}</h2>
+                            </div>
+                            <div className="infoDivs">
+                                <h2>Has access to the ocean: </h2>
+                                <h2 className="theContent">{details[0].landLocked}</h2>
+                            </div>
+                            <div className="infoDivs timezoneDiv">
+                                <h2>Timezones: </h2>
+                                <h2 className="theContent timezone">{details[0].timezone}</h2>
+                            </div>
+                        </div>
+                        <div className="borderContainer">
                             <h2>Borders: {
-                                details[0].borders.length > 0 ?
-                                details[0].borders.map(el => {
+                                borders.length > 0 ?
+                                borders.map(el => {
                                     return (
-                                        el === "No Borders" ? 
-                                        <p>No borders</p>
-                                        :
-                                        <Link to={`/countries/${el}/details`} onClick={(e) => handleBorders(e)} key={el}>
-                                            <p>{el}</p>
+                                        <Link to={`/countries/${el.id}/details`} onClick={(e) => handleBorders(e)} key={el.id} id={el.id}>
+                                            <p id={el.id}>{el.name}</p>
                                         </Link>
                                     )
                                 })
-                                : <></>
+                                : <p>No Borders</p>
                             }
                             </h2>
                         </div>
-                        <h2>Has access to the sea: {details[0].landLocked}</h2>
+
                         
                     </>
                     : <div>Loading...</div>

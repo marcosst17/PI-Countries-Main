@@ -38,6 +38,25 @@ const router = Router();
     }
 }) */
 
+router.get("/borders", (req, res) => {
+    let borders = req.query.borders;
+    if(borders.length > 0 && borders.split("_").length > 1){
+        borders = borders.split("_")
+    }
+    console.log(borders)
+    return Country.findAll({
+        attributes: ["name", "flag", "id"],
+        where: {
+            id: {
+                [Op.or]: [borders],
+            }
+        }
+    })
+    .then(countries => {
+        res.send(countries)
+    })
+})
+
 router.get("/", (req, res) => {
     // const {search, continent, order, param} = req.query
     const search = req.query.search || ""
@@ -111,6 +130,8 @@ router.get("/:id", (req, res) => {
         res.send(countries)
     })
 })
+
+
 
 router.get("/:id/details", (req, res) => {
     const {id} = req.params
