@@ -26,7 +26,12 @@ export default function Details(){
     const handleBorders = (e) => {
         console.log(e.target)
         axios.get("http://localhost:3001/countries/"+e.target.id+"/details")
-        .then(r => setDetails(r.data))
+        .then(r => {
+            setDetails(r.data)
+            let queries = r.data[0].borders[0] !== "No Borders" ? r.data[0].borders.join("_") : ""
+            axios.get("http://localhost:3001/countries/borders?borders="+queries)
+            .then(re => setBorders(re.data))
+        })
     }
 
     return (
