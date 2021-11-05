@@ -9,6 +9,9 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchCities, getCountriesByContinent, testing } from './redux/actions';
 import NavBar from './components/NavBar';
+import background from "./styles/landing.png"
+import background2 from "./styles/duotone4.jpg"
+import Landing from './components/Landing';
 // import { useState } from 'react';
 // import axios from "axios";
 
@@ -31,17 +34,22 @@ function App() {
   }, [])
   return (
     <div className="App">
-      <NavBar/>
-      <Route exact path="/countries">
-        {/* <SearchBar/> */}
-        <Countries />
-      </Route>
-      <Route path="/countries/:id/details">
-        <Details/>
-      </Route>
-      <Route path="/activities">
-        <ActivityForm/>
-      </Route>
+        <Route exact path="/">
+          <Landing/>
+        </Route>
+        <Route exact path="/countries">
+          <NavBar/>
+          {/* <SearchBar/> */}
+          <Countries />
+        </Route>
+        <Route path="/countries/:id/details">
+          <NavBar/>
+          <Details/>
+        </Route>
+        <Route path="/activities">
+          <NavBar/>
+          <ActivityForm/>
+        </Route>
     </div>
   );
 }

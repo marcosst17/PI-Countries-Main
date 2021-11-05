@@ -1,5 +1,6 @@
 .allContainer {
     background: red;
+    animation: append-animate 0.75s ease-in;
 }
 
 .searchContainer {
@@ -149,3 +150,14 @@
     font-weight: bold;
     font-size: 1.2rem;
 }
+
+@keyframes append-animate {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+  }
