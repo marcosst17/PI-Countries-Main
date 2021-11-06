@@ -1,0 +1,83 @@
+.nameForm {
+    background: red;
+    height: 50%;
+}
+
+.nameForm input {
+    margin-top: 5rem;
+}
+
+.durationForm {
+    background: green;
+    height: 50%;
+}
+
+.durationForm input {
+    margin-top: 5rem;
+}
+
+.difficultyForm {
+    background: blue;
+    height: 50%;
+}
+
+.difficultyForm select {
+    margin-top: 5rem;
+}
+
+.seasonForm {
+    background:chocolate;
+    height: 50%;
+}
+
+.seasonForm select {
+    margin-top: 5rem;
+}
+
+.countryForm {
+    background:darkorchid;
+    height: 100%;
+}
+
+.countryForm select {
+    margin-top: 10rem;
+}
+
+.selectedForm {
+    background:lightpink;
+    height: 85%;
+}
+
+.selectedForm p {
+    margin: 0;
+}
+
+.submitForm {
+    background: yellow;
+    height: 15%;
+}
+
+.parent {
+    background: gray;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 1rem;
+    grid-row-gap: 1rem;
+    margin: 5rem 10rem;
+    height: 75vh;
+}
+.div1 { 
+    grid-area: 1 / 1 / 2 / 2; 
+    /* background: yellow; */
+    /* height: 15rem; */
+}
+.div2 { 
+    grid-area: 1 / 2 / 2 / 3; 
+}
+.div3 { 
+    grid-area: 2 / 1 / 3 / 2; 
+}
+.div4 { 
+    grid-area: 2 / 2 / 3 / 3; 
+}

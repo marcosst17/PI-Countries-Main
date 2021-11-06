@@ -46,7 +46,7 @@ function Countries() {
         continent: "",
         param: "",
         order: "",
-        activities: []
+        activities: ["all"]
     })
 
     const handleComposeSearch = (e) => {
@@ -96,21 +96,21 @@ function Countries() {
         } else {
             setSelectedAct([...selectedAct, e.target.value])
         } */
-        let found2 = composeSearch.activities.find(el => el === e.target.value)
+        /* let found2 = composeSearch.activities.find(el => el === e.target.value)
         if(found2){
-            console.log("entre al if");
+            // console.log("entre al if");
             let deleted2 = composeSearch.activities.filter(el => el !== e.target.value)
             setComposeSearch({
                 ...composeSearch,
                 activities: deleted2
             })
-        } else {
-            console.log("entre al else")
+        } else { */
+            // console.log("entre al else")
             setComposeSearch({
                 ...composeSearch,
-                activities: [...composeSearch.activities, e.target.value]
+                activities: [e.target.value]
             })
-        }
+        // }
         // setComposeSearch({
         //     ...composeSearch,
         //     activities: [...composeSearch.activities, found2]

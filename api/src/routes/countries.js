@@ -63,11 +63,11 @@ router.get("/", (req, res) => {
     // const param = req.query.param || "name"
     // const order = req.query.order || "ASC"
     let activities = req.query.activities || "%"
-    if(activities.length > 0 && activities.split("_").length > 1){
+    /* if(activities.length > 0 && activities.split("_").length > 1){
         activities = activities.split("_")
     }
-    console.log(activities)
-    if(activities !== "%"){
+    console.log(activities) */
+    if(activities !== "all"){
         return Country.findAll({
             where: {
                 name: {

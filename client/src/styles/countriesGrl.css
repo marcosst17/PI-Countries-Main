@@ -178,6 +178,7 @@
 
 .checksContainer {
     display: flex;
+    margin-bottom: 10px;
     /* background: -webkit-radial-gradient(#10305810, #0a0011); */
 }
 

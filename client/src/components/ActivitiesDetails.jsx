@@ -15,7 +15,7 @@ export default function ActivityDetails({details}) {
                         </div>
                     )
                 })
-                : <h3>NO ACTIVITIES YET</h3>
+                : <h3>No Activities</h3>
             }
         </div>
     )
