@@ -4,15 +4,18 @@
     width: 98vw;
     height: 90vh;
     /* overflow-y: auto; */
-    animation: append-animate 0.5s linear;
+    /* animation: append-animate 0.5s linear; */
+    /* color: rgb(173, 170, 170); */
+    color: white;
 }
 
 .detailsContainer {
     float: left;
-    width: 50vw;
+    width: 48vw;
     /* display: flex; */
     text-align: center;
-    margin-right: 10px;
+    /* margin-right: 40px; */
+    margin-left: 100px;
     overflow-y: auto;
     background: -webkit-radial-gradient(#10305810, #0a0011);
     border-radius: 30px;
@@ -20,19 +23,19 @@
     border-top-right-radius: 0px;
 }
 
-.detailsContainer::-webkit-scrollbar-track {
+.detailsContainer::-webkit-scrollbar-track, .activitiesContainer::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
 	background-color: #F5F5F5;
 	border-radius: 30px;
 }
 
-.detailsContainer::-webkit-scrollbar {
+.detailsContainer::-webkit-scrollbar, .activitiesContainer::-webkit-scrollbar {
 	width: 10px;
     border-radius: 30px;
 	background-color: #F5F5F5;
 }
 
-.detailsContainer::-webkit-scrollbar-thumb {
+.detailsContainer::-webkit-scrollbar-thumb, .activitiesContainer::-webkit-scrollbar-thumb {
 	border-radius: 10px;
 	background-image: -webkit-gradient(linear,
 									   left bottom,
@@ -44,11 +47,20 @@
 
 .activitiesContainer {
     float: right;
-    width: 48vw;
-    margin-left: 10px;
+    width: 35vw;
+    margin-left: 120px;
     overflow-y: auto;
     background: -webkit-radial-gradient(#10305810, #0a0011);
     border-radius: 30px;
+}
+
+.activitiesContainer h3 {
+    margin-top: 50%;
+}
+
+.activitiesDiv {
+    margin-top: 3rem;
+    background: red;
 }
 
 .flagsContainer {
@@ -57,7 +69,7 @@
     margin: 0 auto;
     justify-content: space-around;
     align-items: center;
-    background: rgba(98, 119, 235, 0.4);
+    background: rgba(98, 119, 235, 0.2);
     height: 220px;
     border-radius: 15px;
     box-shadow: 0px 0px 38px 11px rgba(67,87,179,0.67) inset;
@@ -80,10 +92,10 @@
     /* display: grid;
     left: 1360px; */
     background: #2D2F69;
-    width: 47.5vw;
+    width: 35vw;
     margin-top: 0;
     border-top-left-radius: 30px;
-    border-top-right-radius: 30px;
+    /* border-top-right-radius: 30px; */
     text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.6);
     color: rgb(98, 119, 235);
 }
@@ -92,7 +104,7 @@
     position: fixed;
     /* display: grid;
     left: 450px; */
-    width: 48.95vw;
+    width: 48vw;
     background: #2D2F69;
     margin-top: 0;
     border-top-left-radius: 30px;
@@ -105,21 +117,24 @@
     margin: 0 auto;
     margin-top: 5rem;
     margin-bottom: 3rem;
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid rgb(189, 181, 181);
     width: 50%;
+    padding-bottom: 10px;
+    color: rgb(189, 181, 181);
 }
 
-.infoContainer {
+.infoContainer, .activitiesDiv {
     margin: 0 auto;
     margin-top: 3rem;
     padding: 10px 0 10px 0;
     width: 70%;
     background: red;
     border-radius: 15px;
-    background: rgba(98, 119, 235, 0.4);
+    background: rgba(98, 119, 235, 0.2);
     box-shadow: 0px 0px 38px 11px rgba(67,87,179,0.67) inset;
     -webkit-box-shadow: 0px 0px 38px 11px rgba(67,87,179,0.67) inset;
     -moz-box-shadow: 0px 0px 38px 11px rgba(67,87,179,0.67) inset;
+    text-shadow: 2px 2px 2px black;
 }
 
 .infoDivs {
@@ -140,6 +155,7 @@
     font-size: 1.3rem;
     font-family: 'Comfortaa';
     margin-right: 0;
+    color: rgb(189, 181, 181);
 }
 
 .timezoneDiv {
@@ -154,15 +170,52 @@
 .borderContainer {
     margin: 0 auto;
     margin-top: 3rem;
+    margin-bottom: 3rem;
     padding: 10px 0 10px 0;
     width: 70%;
-    background: red;
     border-radius: 15px;
-    background: rgba(98, 119, 235, 0.4);
+    background: rgba(98, 119, 235, 0.2);
     box-shadow: 0px 0px 38px 11px rgba(67,87,179,0.67) inset;
     -webkit-box-shadow: 0px 0px 38px 11px rgba(67,87,179,0.67) inset;
     -moz-box-shadow: 0px 0px 38px 11px rgba(67,87,179,0.67) inset;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
+
+#borders {
+    position: relative;
+    /* position: fixed; */
+    height: 2rem;
+    margin: 20px 300px;
+    /* left: 300px; */
+}
+
+.borderContainer .links {
+    text-decoration: none;
+    color: rgb(173, 170, 170);
+}
+
+.borderContainer img {
+    height: 50px;
+    width: 100px;
+    border-radius: 10px;
+    box-shadow: 15px 10px 16px -5px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 15px 10px 16px -5px rgba(0,0,0,0.75);
+    -moz-box-shadow: 15px 10px 16px -5px rgba(0,0,0,0.75);
+}
+
+.singleBorderDiv {
+    height: 100px;
+    width: 200px;
+    margin: 2px;
+}
+
+.border {
+    margin: 0;
+}
+
+
 
 @keyframes append-animate {
     from {

@@ -87,7 +87,7 @@ router.get("/", (req, res) => {
             return res.send(countries)
         })
     } else {
-        console.log("entre al else")
+        // console.log("entre al else")
         return Country.findAll({
             where: {
                 name: {
