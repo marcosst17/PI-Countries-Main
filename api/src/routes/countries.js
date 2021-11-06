@@ -43,7 +43,6 @@ router.get("/borders", (req, res) => {
     if(borders.length > 0 && borders.split("_").length > 1){
         borders = borders.split("_")
     }
-    console.log(borders)
     return Country.findAll({
         attributes: ["name", "flag", "id"],
         where: {
