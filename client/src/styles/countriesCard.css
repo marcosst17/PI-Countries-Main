@@ -41,4 +41,16 @@
     box-shadow: 0px 0px 20px 5px rgba(67,87,179,0.67) inset;
     -webkit-box-shadow: 0px 0px 20px 5px rgba(67,87,179,0.67) inset;
     -moz-box-shadow: 0px 0px 20px 5px rgba(67,87,179,0.67) inset;
+    /* animation: card 2s ease-out; */
+}
+
+@keyframes card {
+    from {
+        opacity: 0;
+        transform: translate3d(+100%, 0, 0)
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0)
+    }
 }

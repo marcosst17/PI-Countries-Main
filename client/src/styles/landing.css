@@ -1,3 +1,60 @@
-h1 {
+.landing {
     margin: 0;
+}
+.landing h1 {
+    /* margin: 0; */
+    animation: fadeIn 2s ease-out;
+    position: absolute;
+    top: 25%;
+    left: 5%;
+    font-size: 6rem;
+}
+
+#landingApp {
+    top: 35%;
+    left: 5%;
+}
+
+.landing p {
+    margin: 0;
+    position: absolute;
+    top: 60%;
+    left: 8%;
+    font-size: 5rem;
+    animation: fadeInStart 2s ease-out;
+    text-decoration: none;
+    /* color: #BFC4AF; */
+    background: -webkit-linear-gradient(#FFFFFF, #146C94);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* background: #FFFFFF; */
+/* background: -webkit-radial-gradient(top left, #FFFFFF, #146C94);
+background: -moz-radial-gradient(top left, #FFFFFF, #146C94);
+background: radial-gradient(to bottom right, #FFFFFF, #146C94); */
+/* background: rgba(255, 255, 255, 1.0);
+background: -webkit-radial-gradient(top left, rgba(255, 255, 255, 1.0), rgba(20, 108, 148, 1.0));
+background: -moz-radial-gradient(top left, rgba(255, 255, 255, 1.0), rgba(20, 108, 148, 1.0));
+background: radial-gradient(to bottom right, rgba(255, 255, 255, 1.0), rgba(20, 108, 148, 1.0)); */
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translate3d(0, -300%, 0);
+	}
+	to {
+		opacity: 1;
+		transform: translate3d(0, 0, 0);
+	}
+}
+
+@keyframes fadeInStart {
+    from {
+        opacity: 0;
+        transform: translate3d(-200%, 0, 0)
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0)
+    }
 }

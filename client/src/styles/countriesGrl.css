@@ -22,7 +22,7 @@
     width: 25vw;
     height: 89vh;
     float: left;
-    
+    animation: orders 1s ease-out;
 }
 
 .filtersContainer {
@@ -104,6 +104,7 @@
     box-shadow: 0px 0px 20px 5px rgba(67,87,179,0.67) inset;
     -webkit-box-shadow: 0px 0px 20px 5px rgba(67,87,179,0.67) inset;
     -moz-box-shadow: 0px 0px 20px 5px rgba(67,87,179,0.67) inset;
+    animation: pagination 1s ease-out;
 }
 
 .paginationContainer button {
@@ -120,6 +121,7 @@
     justify-content: space-around;
     flex-wrap: wrap;
     overflow-y: auto;
+    animation: countriesDiv 1s ease-out;
 }
 
 .countriesContainer::-webkit-scrollbar-track {
@@ -195,4 +197,37 @@
         transform: scale(1);
         opacity: 1;
     }
-  }
+}
+
+@keyframes pagination {
+    from {
+        opacity: 0;
+        transform: translate3d(0, +30%, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0)
+    }
+}
+
+@keyframes countriesDiv {
+    from {
+        opacity: 0;
+        transform: translate3d(+100%, 0, 0)
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0)
+    }
+}
+
+@keyframes orders {
+    from {
+        opacity: 0;
+        transform: translate3d(-100%, 0, 0)
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0)
+    }
+}

@@ -4,15 +4,16 @@ html {
 -moz-background-size: cover;
 -o-background-size: cover;
 background-size: cover;
-animation: append-animate 0.75s linear;
+/* animation: append-animate 0.75s linear; */
+overflow: hidden;
 }
 
 .landing {
-  background: url(./styles/landing.png) no-repeat center center fixed; 
+/*   background: url(./styles/landing.png) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover;
+  background-size: cover; */
   margin: 0;
   height: 100vh;
   width: 100%;
