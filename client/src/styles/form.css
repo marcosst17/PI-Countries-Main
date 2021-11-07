@@ -1,20 +1,45 @@
 .nameForm {
     background: red;
     height: 50%;
+    box-sizing: border-box;
+    padding: 0 10rem;
+    position: relative;
 }
 
-.nameForm input {
-    margin-top: 5rem;
+.nameForm label, .durationForm label {
+    position: absolute;
+    top: 5.5rem;
+    left: 11rem;
+    color: black;
+    pointer-events: none;
+    transition: 0.5s;
 }
+
+.nameForm input:focus ~ label, .durationForm input:focus ~ label, .nameForm input:valid ~ label, .durationForm input:valid ~ label{
+    top: +55px;
+    font-weight: bold;
+}
+
+.nameForm input, .durationForm input {
+    margin-top: 5rem;
+    padding: 10px 0;
+    width: 100%;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid black;
+    box-sizing: border-box;
+    box-shadow: none;
+}
+
 
 .durationForm {
     background: green;
     height: 50%;
+    box-sizing: border-box;
+    padding: 0 10rem;
+    position: relative;
 }
 
-.durationForm input {
-    margin-top: 5rem;
-}
 
 .difficultyForm {
     background: blue;
@@ -48,7 +73,8 @@
     height: 85%;
 }
 
-.selectedForm p {
+.selectedForm h3 {
+    padding-top: 15px;
     margin: 0;
 }
 

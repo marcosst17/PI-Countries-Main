@@ -67,12 +67,12 @@ export default function ActivityForm(){
             <div className="parent">
                 <div className="div1">
                     <div className="nameForm">
+                        <input type="text" name="name" id="name" value={input.name} onChange={(e) => handleChange(e)} required />
                         <label htmlFor="name">Name</label>
-                        <input type="text" name="name" id="name" placeholder="I.e: Surfing" value={input.name} onChange={(e) => handleChange(e)} required />
                     </div>
                     <div className="durationForm">
+                        <input type="text" name="duration" id="duration" value={input.duration} onChange={(e) => handleChange(e)} required/>
                         <label htmlFor="duration">Duration</label>
-                        <input type="text" name="duration" id="duration" placeholder="I.e: 2 weeks" value={input.duration} onChange={(e) => handleChange(e)}/>
                     </div>
                 </div>
                 <div className="div2">
@@ -113,7 +113,7 @@ export default function ActivityForm(){
                 </div>
                 <div className="div4">
                     <div className="selectedForm">
-                        <p>Selected countries:</p>
+                        <h3>Selected countries:</h3>
                         {
                             country.length > 0 ?
                             country.map(el => {

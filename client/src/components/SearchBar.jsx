@@ -35,9 +35,10 @@ export default function SearchBar({handlePageChange, handleComposeSearch}){
     }, [search])  */
     
     return (
-        <div>
+        <div className="searchBarDiv">
             <form onSubmit={onSubmit}>
-            <input type="text" placeholder="Search" onChange={onInputChange} value={search} name="searchBar"/>
+                <input type="text" onChange={onInputChange} value={search} name="searchBar" id="searchBar" required/>
+                <label htmlFor="searchBar">Search</label>
             {/* <button type="submit" value="Search">Search</button> */}
             </form>
         </div>

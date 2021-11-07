@@ -189,6 +189,31 @@
     font-size: 1.2rem;
 }
 
+.searchBarDiv input {
+    width: 250px;
+    padding: 5px 15px;
+    border-radius: 15px;
+    outline: none;
+}
+
+.searchBarDiv {
+    position: relative;
+}
+
+.searchBarDiv label {
+    position: absolute;
+    top: 5px;
+    left: 7.5rem;
+    color: black;
+    transition: 0.5s
+}
+
+.searchBarDiv input:focus ~ label, .searchBarDiv input:valid ~ label {
+    left: 2rem;
+    color: white;
+    font-weight: bold;
+}
+
 @keyframes append-animate {
     from {
         transform: scale(0);
