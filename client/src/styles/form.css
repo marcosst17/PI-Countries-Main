@@ -1,5 +1,5 @@
 .nameForm {
-    background: red;
+    /* background: red; */
     height: 50%;
     box-sizing: border-box;
     padding: 0 10rem;
@@ -8,7 +8,7 @@
 
 .nameForm label, .durationForm label {
     position: absolute;
-    top: 5.5rem;
+    top: 4.8rem;
     left: 11rem;
     color: black;
     pointer-events: none;
@@ -16,24 +16,26 @@
 }
 
 .nameForm input:focus ~ label, .durationForm input:focus ~ label, .nameForm input:valid ~ label, .durationForm input:valid ~ label{
-    top: +55px;
+    top: +30px;
     font-weight: bold;
+    font-size: 1.5rem;
 }
 
 .nameForm input, .durationForm input {
-    margin-top: 5rem;
-    padding: 10px 0;
+    margin-top: 4.1rem;
+    padding: 10px 10px;
     width: 100%;
     outline: none;
     border: none;
     border-bottom: 2px solid black;
     box-sizing: border-box;
     box-shadow: none;
+    font-size: 1.2rem;
 }
 
 
 .durationForm {
-    background: green;
+    /* background: green; */
     height: 50%;
     box-sizing: border-box;
     padding: 0 10rem;
@@ -97,6 +99,8 @@
     grid-area: 1 / 1 / 2 / 2; 
     /* background: yellow; */
     /* height: 15rem; */
+    background: -webkit-radial-gradient(#10305810, #0a0011);
+    border-radius: 25px;
 }
 .div2 { 
     grid-area: 1 / 2 / 2 / 3; 

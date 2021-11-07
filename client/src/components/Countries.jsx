@@ -21,25 +21,20 @@ function Countries() {
     let pages = useSelector(state => state.pages);
     let dispatch = useDispatch()
     const [page, setPage] = useState(1);
-    // const [totalPages, setTotalPages] = useState(0);
-    // componentWillMount()
-    // useEffect(() => {
-    //     // dispatch(fetchCities())
-    //     // setTotalPages(Math.ceil(countries.length / 10))
-    //     // eslint-disable-next-line
-    // }, [])
-    // const ctrPerPage = 9;
     const startIndex = (page - 1) * CTR_PER_PAGE;
     const selectedCtrs = countries.slice(startIndex, startIndex + CTR_PER_PAGE);
-    // console.log(countries.length)
 
     const handlePageChange = (page) => {
         setPage(page);
     }
 
-    /* const handleFilter = (filter) => {
-        dispatch(getCountriesByContinent(filter))
-    } */
+    const handleForward = () => {
+        page + 1 > pages ? setPage(page) : setPage(page + 1)
+    }
+
+    const handleBackward = () => {
+        page === 1 ? setPage(1) : setPage(page - 1)
+    }
 
     const [composeSearch, setComposeSearch] = useState({
         searchBar: "",
@@ -66,10 +61,6 @@ function Countries() {
         }
     }
     
-    // let copyCountries = useSelector(state => state.copiaCountries)
-    /* console.log(copyCountries)
-    let test = copyCountries.filter(el => el.activities.find(el => el.name === "Testing"))
-    console.log(test) */
     const [activitySt, setActivitySt] = useState([])
     useEffect(() => {
         axios.get("http://localhost:3001/activities")
@@ -89,56 +80,19 @@ function Countries() {
     // const [selectedAct, setSelectedAct] = useState([])
     
     const handleFilterAct = (e) => {
-        /* let found = selectedAct.find(el => el === e.target.value)
-        if(found){
-            let deleted = selectedAct.filter(el => el !== e.target.value)
-            setSelectedAct(deleted)
-        } else {
-            setSelectedAct([...selectedAct, e.target.value])
-        } */
-        /* let found2 = composeSearch.activities.find(el => el === e.target.value)
+/*         let found2 = composeSearch.activities.find(el => el === e.target.value)
         if(found2){
             // console.log("entre al if");
             let deleted2 = composeSearch.activities.filter(el => el !== e.target.value)
             setComposeSearch({
                 ...composeSearch,
                 activities: deleted2
-            })
-        } else { */
-            // console.log("entre al else")
-            setComposeSearch({
-                ...composeSearch,
-                activities: [e.target.value]
-            })
-        // }
-        // setComposeSearch({
-        //     ...composeSearch,
-        //     activities: [...composeSearch.activities, found2]
-        // })
+            }) */
+        setComposeSearch({
+            ...composeSearch,
+            activities: [e.target.value]
+        })
     }
-    // const handleSort = () => {
-    //     countries.sort((a, b) => {
-    //         if (a.name > b.name) {
-    //             return 1;
-    //         }
-    //         if (a.name < b.name) {
-    //             return -1;
-    //         }
-    //         return 0;
-    //     })
-    // }
-    // if(countries.length === 0) return <div>Loading...</div>
-    //  return (
-    //     <div>
-    //         {   
-    //             countries.length > 0 ?
-    //                 countries.map(country => {
-    //                     return <Country name={country.name} flag={country.flag} id={country.id} continent={country.continent} key={country.id}/>
-    //                 })
-    //             : <h4>No countries found</h4>
-    //         }
-    //     </div>
-    // )
     return (
         <div className="allContainer">
             <div className="ordersContainer">
@@ -162,7 +116,7 @@ function Countries() {
                 }
             </div>
             <div className="paginationContainer">
-                <Pagination totalPages={pages} handlePageChange={handlePageChange} />
+                <Pagination totalPages={pages} handlePageChange={handlePageChange} handleForward={handleForward} handleBackward={handleBackward}/>
             </div>
         </div>
     )
