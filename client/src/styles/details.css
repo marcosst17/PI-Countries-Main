@@ -132,6 +132,10 @@
     text-shadow: 2px 2px 2px black;
 }
 
+.activitiesDiv {
+    margin-bottom: 2rem;
+}
+
 .infoContainer {
     margin-bottom: 2rem;
 }

@@ -7,7 +7,7 @@ export default function Landing() {
         <h1 id="landingCountries">COUNTRIES</h1>
         <h1 id="landingApp">APP</h1>
         <Link to="/countries">
-            <div class="neonWrapper">
+            <div className="neonWrapper">
                 <p>START</p>
                 <span className="span"></span>
                 <span className="dodge"></span>

@@ -1,4 +1,4 @@
-const { Country, conn } = require('../../src/db.js');
+const { Country, conn, Activity } = require('../../src/db.js');
 const { expect } = require('chai');
 
 describe('Country model', () => {
@@ -20,3 +20,31 @@ describe('Country model', () => {
     });
   });
 });
+
+describe('Activity Model', () => {
+  before(() => conn.authenticate()
+    .catch((err) => {
+      console.error('Unable to connect to the database:', err);
+    }));
+  describe('Validators', () => {
+    beforeEach(() => Activity.sync({ force: true }));
+    describe('name', () => {
+      it('should throw an error if name is null', (done) => {
+        Activity.create({})
+          .then(() => done(new Error('It requires a valid name')))
+          .catch(() => done());
+      });
+      it('should work when its a valid name', () => {
+        Activity.create({ name: 'Comer Asado' });
+      });
+      it('should throw an error if difficulty is other than 1, 2, 3, 4 or 5', (done) => {
+        Activity.create({ name: 'Comer Asado', difficulty: 6 })
+          .then(() => done(new Error('It requires a valid difficulty')))
+          .catch(() => done());
+      })
+      it('should work when its a valid difficulty', () => {
+        Activity.create({ name: 'Comer Asado', difficulty: 1 });
+      });
+    });
+  });
+})
