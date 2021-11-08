@@ -78,14 +78,6 @@ export default function ActivityForm(){
                 <div className="div3">
                     <div className="difficultyForm">
                         <h2>Difficulty</h2>
-                        {/* <select name="difficulty" id="difficulty" value={input.difficulty} onChange={(e) => handleChange(e)} required>
-                            <option value="" selected disabled >Select a difficulty</option>
-                            <option value="1">Very Easy</option>
-                            <option value="2">Easy</option>
-                            <option value="3">Medium</option>
-                            <option value="4">Hard</option>
-                            <option value="5">Very Hard</option>
-                        </select> */}
                         <div className="inputContainer">
                             <input type="radio" name="difficulty" id="veryEasy" value="1" onChange={(e) => handleChange(e)} required defaultChecked/>
                             <label htmlFor="veryEasy">Very Easy</label>
@@ -109,13 +101,6 @@ export default function ActivityForm(){
                     </div>
                     <div className="seasonForm">
                         <h2>Season</h2>
-                        {/* <select name="season" id="season" value={input.season} onChange={(e) => handleChange(e)} required>
-                            <option value="" selected disabled >Select a season</option>
-                            <option value="winter">Winter</option>
-                            <option value="spring">Spring</option>
-                            <option value="summer">Summer</option>
-                            <option value="autumn">Autumn</option>
-                        </select> */}
                         <div className="inputContainer">
                             <input type="radio" name="season" id="winter" value="winter" onChange={(e) => handleChange(e)} defaultChecked required/>
                             <label htmlFor="winter">Winter</label>

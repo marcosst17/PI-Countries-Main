@@ -49,32 +49,13 @@ export default function Details(){
                     details.length > 0 ?
                     <>
                         <Detail details={details[0]}/>
-                        {/* <div className="borderContainer">
-                            <h2 id="borders">Borders: </h2>
-                            
-                            {
-                                borders.length > 0 ?
-                                borders.map(el => {
-                                    return (
-                                        <div className="singleBorderDiv">
-                                        <Link to={`/countries/${el.id}/details`} onClick={(e) => handleBorders(e)} key={el.id} id={el.id} className="links">
-                                                <h2 id={el.id} className="border">{el.name}</h2>
-                                                <img src={el.flag} alt="Flag" className="border" id={el.id}/>
-                                        </Link>
-                                        </div>
-                                    )
-                                })
-                                : <h2>No Borders</h2>
-                            }
-                            
-                        </div> */}
                     </>
                     : <div>Loading...</div>
                 }
             </div>
             <div className="borderAct">
             <div className="borderContainer">
-                <h2 className="fixedA" /* id="borders" */>BORDERS</h2>
+                <h2 className="fixedA">BORDERS</h2>
                 <p className="space"/>
                 {
                     borders.length > 0 ?

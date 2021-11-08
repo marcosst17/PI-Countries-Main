@@ -114,12 +114,3 @@ function Countries() {
 }
 
 export default Countries
-
-/*         let found2 = composeSearch.activities.find(el => el === e.target.value)
-        if(found2){
-            // console.log("entre al if");
-            let deleted2 = composeSearch.activities.filter(el => el !== e.target.value)
-            setComposeSearch({
-                ...composeSearch,
-                activities: deleted2
-            }) */

@@ -29,12 +29,5 @@ router.post("/", async (req, res, next) => {
     }
 })
 
-router.put("/", (req, res) => {
-    res.send("soy put activities")
-})
-
-router.delete("/", (req, res) => {
-    res.send("soy delete activities")
-})
 
 module.exports = router;

@@ -12,21 +12,6 @@ export function getAllCountries() { // EN EL FORM
     }
 }
 
-/* export function fetchCities(){
-    return function (dispatch){
-        axios.get("http://localhost:3001/countries")
-        .then(countries => {
-            dispatch({
-                type: "GET_COUNTRIES",
-                payload: countries.data
-            })
-        })
-        .catch((err) => {
-            console.log(err)
-        })
-    }
-} */
-
 export function getCountriesByContinent(continent){  // EN APP
     return function (dispatch){
         if(continent === "All"){
@@ -49,21 +34,6 @@ export function getCountriesByContinent(continent){  // EN APP
         }
     }
 }
-
-/* export function searchCountries(search){  // NUNCA
-    return function(dispatch){
-        axios.get("http://localhost:3001/countries?name="+search)
-        .then(countries => {
-            dispatch({
-                type: "SEARCH_COUNTRIES",
-                payload: countries.data
-            })
-        })
-        .catch(err => {
-            console.log(err)
-        })
-    }
-} */
 
 export function createActivity(activity){ // EN EL FORM
     return function(dispatch){

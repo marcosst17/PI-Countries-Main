@@ -1,8 +1,6 @@
 export default function Filters({handlePageChange, handleComposeSearch}){
 
     const handleFiltering = (e) => {
-        // console.log(e)
-/*         handleFilter(e.target.value); */
         handlePageChange(1)
         handleComposeSearch(e)
     }
