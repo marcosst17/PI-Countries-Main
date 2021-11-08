@@ -57,6 +57,8 @@
     text-align: center;
     border-radius: 5px;
     font-size: 1rem;
+    cursor: pointer;
+    outline: none;
 }
 
 .ordersContainer .input {
@@ -76,6 +78,7 @@
     color: black;
     margin: 0 21px;
     width: 150px;
+    cursor: pointer;
 }
 
 .ordersContainer input:checked + .label {
@@ -109,6 +112,7 @@
 
 .paginationContainer button {
     margin: 0 3px;
+    cursor: pointer;
 }
 
 .countriesContainer {
@@ -174,11 +178,17 @@
     height: 20px;
     margin: 0 10px;
     margin-left: 4rem;
+    cursor: pointer;
+}
+
+.checkBox + label {
+    cursor: pointer;
 }
 
 .checksContainer {
     display: flex;
     margin-bottom: 10px;
+    /* cursor: pointer; */
     /* background: -webkit-radial-gradient(#10305810, #0a0011); */
 }
 
@@ -205,7 +215,8 @@
     top: 5px;
     left: 7.5rem;
     color: black;
-    transition: 0.5s
+    transition: 0.5s;
+    cursor: text;
 }
 
 .searchBarDiv input:focus ~ label, .searchBarDiv input:valid ~ label {
