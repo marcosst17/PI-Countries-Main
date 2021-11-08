@@ -6,7 +6,7 @@
     animation: fadeIn 2s ease-out;
     position: absolute;
     top: 20%;
-    left: 34.5%;
+    left: 20%;
     font-size: 8rem;
     font-family: 'Indie Flower';
     background: rgb(255,255,255);
@@ -18,7 +18,7 @@
 
 #landingApp {
     top: 35%;
-    left: 44%;
+    left: 30%;
 }
 
 .neonWrapper {
@@ -30,6 +30,7 @@
     overflow: hidden;
     width: 288.8px;
     height: 115px;
+    animation: fadeInStart 2s ease-out;
 }
 
 .landing p {
@@ -46,6 +47,7 @@
     /* animation: fadeInStart 2s ease-out; */
     color: white;
     background: black;
+    /* animation: start 1s linear; */
 }
 
 .landing p::before {
@@ -107,5 +109,14 @@
 @keyframes blink {
     50% {
         opacity: 0;
+    }
+}
+
+@keyframes start {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
     }
 }

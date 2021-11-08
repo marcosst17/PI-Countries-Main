@@ -22,7 +22,7 @@ export default function FilterByActivity({activitySt, handleFilterAct}){
             <p className="mainText">FILTER BY ACTIVITY</p>
             <div className="checksContainer">
                 <input type="radio" name="activities" id="all" value="all" className="checkBox" defaultChecked onChange={handleFilterAct}/>
-                <label htmlFor="all">All</label>
+                <label htmlFor="all" className="labelAct">All</label>
                 <br/>
             </div>
             {

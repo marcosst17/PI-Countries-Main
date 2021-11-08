@@ -19,7 +19,8 @@
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 const { default: axios } = require('axios');
 const server = require('./src/app.js');
-const { conn, Country } = require('./src/db.js');
+const { conn, Country, Activity } = require('./src/db.js');
+const {activitiesBulk} = require("./activitiesBulk");
 
 // Syncing all the models at once.
 conn.sync({ force: true }).then(async () => {
@@ -50,6 +51,19 @@ conn.sync({ force: true }).then(async () => {
         console.error(err)
       }
     }
+  } catch (err) {
+    console.error(err)
+  }
+  try {
+    activitiesBulk.map(async (el) => {
+      let newActivity = await Activity.create({
+        name: el.name,
+        duration: el.duration,
+        difficulty: el.difficulty,
+        season: el.season,
+      })
+      await newActivity.addCountry(el.countryId)
+    })
   } catch (err) {
     console.error(err)
   }
