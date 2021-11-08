@@ -1,40 +1,85 @@
 .landing {
     margin: 0;
 }
+
 .landing h1 {
-    /* margin: 0; */
     animation: fadeIn 2s ease-out;
     position: absolute;
-    top: 25%;
-    left: 5%;
-    font-size: 6rem;
+    top: 20%;
+    left: 34.5%;
+    font-size: 8rem;
+    font-family: 'Indie Flower';
+    background: rgb(255,255,255);
+    background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(213,208,213,1) 15%, rgba(134,140,181,1) 57%, rgba(134,137,222,1) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 #landingApp {
     top: 35%;
-    left: 5%;
+    left: 44%;
+}
+
+.neonWrapper {
+    filter: brightness(200%);
+    position: absolute;
+    top: 80%;
+    left: 42.5%;
+    display: inline-flex;
+    overflow: hidden;
+    width: 288.8px;
+    height: 115px;
 }
 
 .landing p {
     margin: 0;
     position: absolute;
-    top: 60%;
-    left: 8%;
-    font-size: 5rem;
-    animation: fadeInStart 2s ease-out;
+    font-size: 6rem;
+    font-weight: bold;
     text-decoration: none;
-    /* color: #BFC4AF; */
-    background: -webkit-linear-gradient(#FFFFFF, #146C94);
+/*     background: -webkit-linear-gradient(#FFFFFF, #146C94);
+    background-clip: text;
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    /* background: #FFFFFF; */
-/* background: -webkit-radial-gradient(top left, #FFFFFF, #146C94);
-background: -moz-radial-gradient(top left, #FFFFFF, #146C94);
-background: radial-gradient(to bottom right, #FFFFFF, #146C94); */
-/* background: rgba(255, 255, 255, 1.0);
-background: -webkit-radial-gradient(top left, rgba(255, 255, 255, 1.0), rgba(20, 108, 148, 1.0));
-background: -moz-radial-gradient(top left, rgba(255, 255, 255, 1.0), rgba(20, 108, 148, 1.0));
-background: radial-gradient(to bottom right, rgba(255, 255, 255, 1.0), rgba(20, 108, 148, 1.0)); */
+    -webkit-text-fill-color: transparent; */
+    font-family: 'Balsamiq Sans';
+    /* animation: fadeInStart 2s ease-out; */
+    color: white;
+    background: black;
+}
+
+.landing p::before {
+    content: "START";
+    position: absolute;
+    mix-blend-mode: difference;
+    filter: blur(3px);
+}
+
+.span {
+    background: linear-gradient(113.5001723098901deg, rgba(6, 227, 250,1) 5.736111111111111%,rgba(229, 151, 64,1) 96.29166666666666%);
+    position: absolute;
+    width: 288.8px;
+    height: 115px;
+    top: 0;
+    left: 0;
+    mix-blend-mode: multiply;
+}
+
+.dodge {
+    background: radial-gradient(circle, white, black 35%) center / 25% 25%;
+    position: absolute;
+    top: -100%;
+    left: -100%;
+    right: 0;
+    bottom: 0; 
+    mix-blend-mode: color-dodge;
+    animation: dodge-area 3s linear infinite;
+}
+
+@keyframes dodge-area {
+    to {
+        transform: translate(50%, 50%);
+    }
 }
 
 @keyframes fadeIn {
@@ -56,5 +101,11 @@ background: radial-gradient(to bottom right, rgba(255, 255, 255, 1.0), rgba(20, 
     to {
         opacity: 1;
         transform: translate3d(0, 0, 0)
+    }
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
     }
 }

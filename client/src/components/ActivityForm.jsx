@@ -138,7 +138,7 @@ export default function ActivityForm(){
                     <div className="countryForm">
                         <label htmlFor="countryId"></label>
                         <select name="countryId" value={input.countryId} onChange={(e) => handleCountryId(e)} required>
-                            <option value="" selected disabled hidden>Select a Country</option>
+                            <option value="" selected>Select a Country</option>
                             {
                                 countries.map(country => {
                                     return <option key={country.id} value={country.id}>{country.name} ({country.id})</option>

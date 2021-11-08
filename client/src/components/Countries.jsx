@@ -1,10 +1,5 @@
 import React, { useEffect, useState } from 'react';
-// import store from '../redux/store';
-// import * as actionCreators from '../redux/actions';
-// import {connect} from 'react-redux';
-// import { bindActionCreators } from 'redux';
-import { /* fetchCities, getCountriesByContinent,  */allRoutes } from '../redux/actions';
-// import axios from 'axios';
+import { allRoutes } from '../redux/actions';
 import { useDispatch, useSelector } from "react-redux"
 import Pagination from './Pagination';
 import { CTR_PER_PAGE } from "../utils/constants"
@@ -14,7 +9,6 @@ import Orders from './Orders';
 import FilterByActivity from './FilterByActivity';
 import axios from 'axios';
 import "../styles/countriesGrl.css";
-// import "../styles/countriesCard.css";
 import Country from './Country';
 function Countries() {
     let countries = useSelector(state => state.countries);
@@ -24,16 +18,24 @@ function Countries() {
     const startIndex = (page - 1) * CTR_PER_PAGE;
     const selectedCtrs = countries.slice(startIndex, startIndex + CTR_PER_PAGE);
 
+    const scrollTop = () => {
+        let container = document.querySelector(".countriesContainer")
+        container.scrollTo(0, 0)
+    }
+
     const handlePageChange = (page) => {
         setPage(page);
+        scrollTop()
     }
 
     const handleForward = () => {
         page + 1 > pages ? setPage(page) : setPage(page + 1)
+        scrollTop()
     }
 
     const handleBackward = () => {
         page === 1 ? setPage(1) : setPage(page - 1)
+        scrollTop()
     }
 
     const [composeSearch, setComposeSearch] = useState({
@@ -69,25 +71,14 @@ function Countries() {
             setActivitySt(mapped)
         })
     }, [])
-    // console.log(activitySt)
 
     useEffect(() => {
         let joinedActivities = composeSearch.activities.join("_")
-        // console.log(joinedActivities)
         dispatch(allRoutes(composeSearch.searchBar, composeSearch.continent, composeSearch.param, composeSearch.order, joinedActivities))
+        //eslint-disable-next-line
     }, [composeSearch])
-
-    // const [selectedAct, setSelectedAct] = useState([])
     
     const handleFilterAct = (e) => {
-/*         let found2 = composeSearch.activities.find(el => el === e.target.value)
-        if(found2){
-            // console.log("entre al if");
-            let deleted2 = composeSearch.activities.filter(el => el !== e.target.value)
-            setComposeSearch({
-                ...composeSearch,
-                activities: deleted2
-            }) */
         setComposeSearch({
             ...composeSearch,
             activities: [e.target.value]
@@ -100,7 +91,7 @@ function Countries() {
                     <SearchBar handlePageChange={handlePageChange} handleComposeSearch={handleComposeSearch}/>
                 </div>
                 <div className="filtersContainer">
-                    <Filters /* handleFilter={handleFilter} */ handlePageChange={handlePageChange} handleComposeSearch={handleComposeSearch}/>
+                    <Filters handlePageChange={handlePageChange} handleComposeSearch={handleComposeSearch}/>
                     <Orders handleComposeSearch={handleComposeSearch}/>
                 </div>
                 <div className="activityContainer">
@@ -122,15 +113,13 @@ function Countries() {
     )
 }
 
-// function mapStateToProps(state){
-//     return {
-//         cities: state.cities
-//     }
-// }
-
-// function mapDispatchToProps(dispatch){
-//     return bindActionCreators(actionCreators, dispatch)
-// }
-
-// export default connect(mapStateToProps, mapDispatchToProps)(Example);
 export default Countries
+
+/*         let found2 = composeSearch.activities.find(el => el === e.target.value)
+        if(found2){
+            // console.log("entre al if");
+            let deleted2 = composeSearch.activities.filter(el => el !== e.target.value)
+            setComposeSearch({
+                ...composeSearch,
+                activities: deleted2
+            }) */
