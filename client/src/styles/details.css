@@ -100,18 +100,19 @@
 
 .fixedD {
     position: fixed;
-    width: 48vw;
+    width: 47.5vw;
     background: #2D2F69;
     margin-top: 0;
     border-top-left-radius: 30px;
     text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.6);
     color: rgb(98, 119, 235);
+    padding-right: 10px;
 }
 
 .nameCountry {
     margin: 0 auto;
-    margin-top: 5rem;
-    margin-bottom: 3rem;
+    margin-top: 3.5rem;
+    margin-bottom: 2rem;
     border-bottom: 1px solid rgb(189, 181, 181);
     width: 50%;
     padding-bottom: 10px;
@@ -134,9 +135,11 @@
 
 .activitiesDiv {
     margin-bottom: 2rem;
+    margin-top: 15px;
 }
 
 .infoContainer {
+    margin-top: 1rem;
     margin-bottom: 2rem;
 }
 
@@ -145,7 +148,7 @@
     justify-content: left;
     text-align: center;
     align-items: baseline;
-    margin: 30px auto;
+    margin: 20px auto;
     width: 70%;
 }
 

@@ -6,6 +6,8 @@ import store from './redux/store';
 import React from "react";
 import { MemoryRouter } from "react-router-dom";
 import Details from './components/Details';
+import NavBar from "./components/NavBar"
+import axios from 'axios';
 
 test('Landing Page has a button START', () => {
   render(
