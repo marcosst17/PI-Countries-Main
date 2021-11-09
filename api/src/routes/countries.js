@@ -24,10 +24,7 @@ router.get("/borders", (req, res) => {
 router.get("/", (req, res) => {
     const search = req.query.search || ""
     const continent = req.query.continent || {[Op.iLike]: "%"}
-    let activities = req.query.activities || "%"
-    /* if(activities.length > 0 && activities.split("_").length > 1){
-        activities = activities.split("_")
-    } */
+    let activities = req.query.activities
     if(activities !== "all"){
         return Country.findAll({
             where: {
@@ -80,7 +77,6 @@ router.get("/:id/details", (req, res) => {
     const {id} = req.params
     return Country.findByPk(id, {
         include: {model: Activity, through: {attributes: []}},
-        // attributes: ["flag", "name", "continent", "capital", "id", "subregion", "area", "population"],
     })
     .then(countries => {
         res.send(countries)

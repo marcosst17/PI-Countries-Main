@@ -23,7 +23,7 @@ export default function Detail({details}) {
                 </div>
                 <div className="infoDivs">
                     <h2>Population: </h2>
-                    <h2 className="theContent">{details.population}</h2>
+                    <h2 className="theContent">{details.population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}</h2>
                 </div>
                 <div className="infoDivs">
                     <h2>Area: </h2>

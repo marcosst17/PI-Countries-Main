@@ -36,9 +36,9 @@ module.exports = (sequelize) => {
     },
     population: {
       type: DataTypes.INTEGER,
-      get(){
+      /* get(){
         return this.getDataValue('population')?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')
-      }
+      } */
     },
     timezone: {
       type: DataTypes.ARRAY(DataTypes.STRING),
