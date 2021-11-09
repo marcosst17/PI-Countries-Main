@@ -20,17 +20,13 @@ export default function Details(){
             let queries = data?.borders[0] !== "No Borders" ? data.borders.join("_") : ""
             let response2 = await axios.get("http://localhost:3001/countries/borders?borders="+queries)
             let borderResponse = response2.data
-            console.log(borderResponse)
             setBorders(borderResponse)
         }
         fetchDetailsAndBorders()
         // eslint-disable-next-line
     }, [])
 
-    console.log(details)
-
     const handleBorders = (e) => {
-        console.log(e.target)
         axios.get("http://localhost:3001/countries/"+e.target.id+"/details")
         .then(r => {
             setDetails(r.data)

@@ -4,52 +4,16 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import Countries from './components/Countries';
 import Landing from './components/Landing';
-// import Pagination from './components/Pagination';
 import store from './redux/store';
 import React from "react";
 import { MemoryRouter } from "react-router-dom";
-
-describe("<Home/>", () => {
-    const component = render(
-        <Provider store={store}>
-            <MemoryRouter initialEntries={["/home"]}>
-                <App />
-            </MemoryRouter>
-        </Provider>
-    );
-    it("Should render NavBar component", () => {
-        component.container.querySelector("NavBar");
-    });
-
-    it("Should render SideBar component", () => {
-        component.container.querySelector("Sidebar");
-    });
-    it("Should render Pagination component", () => {
-        component.container.querySelector("Pagination");
-    });
-    it("Should render CustomScrollDiv component", () => {
-        component.container.querySelector("CustomScrollDiv");
-    });
-    it("Should render Loading component", () => {
-        component.container.querySelector("Loading");
-    });
-    it("Should render Cards component", () => {
-        component.container.querySelector("Cards");
-    });
-});
-
-/* test('renders learn react link', () => {
-  render(<App />);
-  screen.debug()
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
-}); */
+import Details from './components/Details';
 
 test('Landing Page has a button START', () => {
   render(
-    <BrowserRouter>
+    <MemoryRouter>
       <Landing />
-    </BrowserRouter>
+    </MemoryRouter>
   );
   // screen.debug()
   const linkElement = screen.getByText("START");
@@ -58,28 +22,63 @@ test('Landing Page has a button START', () => {
 
 test('Countries should have a search bar', () => {
   render(
-    <BrowserRouter>
+    <MemoryRouter>
       <Provider store={store}>
         <Countries/>
       </Provider>
-    </BrowserRouter>
+    </MemoryRouter>
   )
   // screen.debug()
   expect(screen.getByRole("textbox")).toBeInTheDocument();
 })
 
-/* test('There should be 28 pages after initial load', async () => {
+test("Details should have a border container", () => {
   render(
-    <BrowserRouter>
+    <MemoryRouter>
       <Provider store={store}>
-        <Pagination/>
+        <Details/>
       </Provider>
-    </BrowserRouter>
+    </MemoryRouter>
   )
-  screen.debug()
-  expect(screen.getByRole("button")).toHaveLength(3)
-  expect(await screen.findAllByRole("button")).toHaveLength(30);
-}) */
+    // screen.debug()
+    expect(screen.getByText("BORDERS")).toBeInTheDocument()
+})
+
+test("Details should have a details container", () => {
+  render(
+    <MemoryRouter>
+      <Provider store={store}>
+        <Details/>
+      </Provider>
+    </MemoryRouter>
+  )
+    // screen.debug()
+    expect(screen.getByText("DETAILS")).toBeInTheDocument()
+})
+
+test("Details should have an activities container", () => {
+  render(
+    <MemoryRouter>
+      <Provider store={store}>
+        <Details/>
+      </Provider>
+    </MemoryRouter>
+  )
+    // screen.debug()
+    expect(screen.getByText("ACTIVITIES")).toBeInTheDocument()
+})
+
+test("Countries should have a filter container with the continents", () => {
+  render(
+    <MemoryRouter>
+      <Provider store={store}>
+        <Countries/>
+      </Provider>
+    </MemoryRouter>
+  )
+    // screen.debug()
+    expect(screen.getByText("FILTER BY CONTINENT")).toBeInTheDocument()
+})
 
 
 

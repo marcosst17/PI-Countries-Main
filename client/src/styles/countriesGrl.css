@@ -136,7 +136,7 @@
     height: 38vh;
     overflow-y: auto;
     display: flex;
-    justify-content:start;
+    justify-content:flex-start;
     flex-wrap:nowrap;
     margin-top: 1rem;
     background: -webkit-radial-gradient(#10305810, #0a0011);

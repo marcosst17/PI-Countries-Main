@@ -47,7 +47,6 @@ function Countries() {
     })
 
     const handleComposeSearch = (e) => {
-        console.log(e.target.value)
         if(e.target.value.split("_").length === 2){
             let split = e.target.value.split("_")
             setComposeSearch({

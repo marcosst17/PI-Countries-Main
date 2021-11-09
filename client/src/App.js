@@ -1,6 +1,6 @@
 import './App.css';
 import Countries from './components/Countries';
-import { Redirect, Route, Switch } from 'react-router';
+import { Route, Switch } from 'react-router';
 import Details from './components/Details';
 import ActivityForm from './components/ActivityForm';
 import { useEffect } from 'react';
