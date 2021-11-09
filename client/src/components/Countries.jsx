@@ -10,6 +10,7 @@ import FilterByActivity from './FilterByActivity';
 import axios from 'axios';
 import "../styles/countriesGrl.css";
 import Country from './Country';
+
 function Countries() {
     let countries = useSelector(state => state.countries);
     let pages = useSelector(state => state.pages);
