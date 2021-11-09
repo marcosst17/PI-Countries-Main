@@ -7,7 +7,7 @@ export default function ActivityDetails({details}) {
                 details.length > 0 ?
                 details.map(el => {
                     return (
-                        <div className="activitiesDiv">
+                        <div className="activitiesDiv" key={el.id}>
                             <h2 key={el.id}>{el.name}</h2>
                             <h2>Difficulty: {el.difficulty}</h2>
                             <h2>{el.duration}</h2>

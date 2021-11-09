@@ -58,7 +58,7 @@ export default function Details(){
                     borders.length > 0 ?
                     borders.map(el => {
                         return (
-                            <div className="singleBorderDiv">
+                            <div className="singleBorderDiv" key={el.id}>
                             <Link to={`/countries/${el.id}/details`} onClick={(e) => handleBorders(e)} key={el.id} id={el.id} className="links">
                                     <h2 id={el.id} className="border">{el.name}</h2>
                                     <img src={el.flag} alt="Flag" className="border" id={el.id}/>
