@@ -1,10 +1,12 @@
 import {useSelector, useDispatch} from 'react-redux';
 import {useEffect, useState} from 'react';
 import { getAllCountries, createActivity } from '../redux/actions';
+import { useHistory } from "react-router-dom";
 import "../styles/form.css"
 
 export default function ActivityForm(){
     let countries = useSelector(state => state.countries);
+    let history = useHistory()
     let dispatch = useDispatch()
     useEffect(() => {
         dispatch(getAllCountries())
@@ -55,12 +57,13 @@ export default function ActivityForm(){
         setInput({
             name: "",
             duration: "",
-            difficulty: "",
-            season: "",
+            difficulty: "1",
+            season: "winter",
             countryId: [],
         })
         setCountry([])
         alert("Activity Created")
+        history.push("/countries")
     }
     return (
         <form onSubmit={(e) => handleSubmit(e)}>

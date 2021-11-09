@@ -1,12 +1,9 @@
 .navBar {
-    /* background-color: white; */
     display: flex;
     justify-content: space-between;
     padding-left: 6rem;
     padding-right: 6rem;
     margin-bottom: 1rem;
-    /* background-color: red; */
-    /* background-color: rgba(255, 255, 255, 0.2) */
     background: -webkit-radial-gradient(#10305810, #0a0011);
     box-shadow: 0px 0px 20px 5px rgba(67,87,179,0.67) inset;
     -webkit-box-shadow: 0px 0px 20px 5px rgba(67,87,179,0.67) inset;
@@ -20,10 +17,8 @@
 
 .navLinks {
     text-decoration: none;
-    /* color: white; */
     font-size: 1.3rem;
     font-weight: bold;
-    /* text-shadow: 1px 1px 3px black; */
     text-shadow: 1px 1px 2px rgb(105, 116, 69);
     color: rgb(98, 119, 235);
 }

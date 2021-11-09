@@ -1,0 +1,23 @@
+.div404 {
+    /* background: white; */
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+}
+
+.div404 img {
+    position: absolute;
+    top: 20%;
+    left: 27%;
+    width: 900px;
+    height: 600px;
+}
+
+.text404 {
+    position: absolute;
+    left: 35%;
+    top: 0%;
+    font-size: 5rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px black;
+}

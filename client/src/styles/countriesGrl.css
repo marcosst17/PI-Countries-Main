@@ -1,10 +1,8 @@
 .allContainer {
     background: red;
-    /* animation: append-animate 0.75s ease-in; */
 }
 
 .searchContainer {
-    /* background: rgba(0, 0, 0, 0.3); */
     margin-top: 1rem;
     padding-top: 1rem;
     padding-bottom: 1rem;
@@ -13,12 +11,10 @@
     box-shadow: 0px 0px 20px 5px rgba(67,87,179,0.67) inset;
     -webkit-box-shadow: 0px 0px 20px 5px rgba(67,87,179,0.67) inset;
     -moz-box-shadow: 0px 0px 20px 5px rgba(67,87,179,0.67) inset;
+    font-weight: bold;
 }
 
 .ordersContainer {
-    /* background: yellow; */
-    /* margin: auto 0; */
-    /* padding: 1rem 0; */
     width: 25vw;
     height: 89vh;
     float: left;
@@ -26,30 +22,19 @@
 }
 
 .filtersContainer {
-    /* background: rgba(0, 0, 0, 0.3); */
-    /* padding: 1.5rem; */
-    /* padding-left: 1.5rem; */
     height: 35vh;
     margin-top: 1rem;
     padding: 1rem 0;
-/*     display: flex;
-    flex-wrap: wrap;
-    justify-content: center; */
     background: -webkit-radial-gradient(#10305810, #0a0011);
     border-radius: 15px;
     box-shadow: 0px 0px 20px 5px rgba(67,87,179,0.67) inset;
     -webkit-box-shadow: 0px 0px 20px 5px rgba(67,87,179,0.67) inset;
     -moz-box-shadow: 0px 0px 20px 5px rgba(67,87,179,0.67) inset;
-    /* overflow-y: auto; */
 }
 
 .continent {
     margin-top: 5px;
 }
-
-/* .filtersContainer .label {
-    width: 150px;
-} */
 
 .filtersContainer select {
     width: 13rem;
@@ -59,6 +44,7 @@
     font-size: 1rem;
     cursor: pointer;
     outline: none;
+    font-weight: bold;
 }
 
 .ordersContainer .input {
@@ -79,6 +65,7 @@
     margin: 0 21px;
     width: 150px;
     cursor: pointer;
+    font-weight: bold;
 }
 
 .ordersContainer input:checked + .label {
@@ -91,7 +78,6 @@
 }
 
 .paginationContainer {
-  /*   background: cyan; */
     display: flex;
     justify-content: center;
     width: 69vw;
@@ -99,9 +85,6 @@
     margin-right: 2.5vw;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
- /*    position: absolute;
-    top: 90vh; */
-    /* margin: 0 auto; */
     background: -webkit-radial-gradient(#10305810, #0a0011);
     border-radius: 15px;
     box-shadow: 0px 0px 20px 5px rgba(67,87,179,0.67) inset;
@@ -116,7 +99,6 @@
 }
 
 .countriesContainer {
-    /* background:blueviolet; */
     float: right;
     width: 70vw;
     height: 85vh;
@@ -128,19 +110,19 @@
     animation: countriesDiv 1s ease-out;
 }
 
-.countriesContainer::-webkit-scrollbar-track {
+.countriesContainer::-webkit-scrollbar-track, .activityContainer::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
 	background-color: #F5F5F5;
 	border-radius: 30px;
 }
 
-.countriesContainer::-webkit-scrollbar {
+.countriesContainer::-webkit-scrollbar, .activityContainer::-webkit-scrollbar {
 	width: 10px;
     border-radius: 30px;
 	background-color: #F5F5F5;
 }
 
-.countriesContainer::-webkit-scrollbar-thumb {
+.countriesContainer::-webkit-scrollbar-thumb, .activityContainer::-webkit-scrollbar-thumb {
 	border-radius: 10px;
 	background-image: -webkit-gradient(linear,
 									   left bottom,
@@ -151,8 +133,6 @@
 }
 
 .activityContainer {
-    /* background: rgb(170,75,237);
-    background: linear-gradient(16deg, rgba(170,75,237,0.3) 0%, rgba(148,50,148,0.3) 26%, rgba(20,12,20,0.3) 81%, rgba(20,12,20,0.3) 100%); */
     height: 38vh;
     overflow-y: auto;
     display: flex;
@@ -169,8 +149,10 @@
 .activityContainer .labelAct {
     width: 200px;
     height: 30px;
-/*     color: black; */
     text-align: initial;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-left: 1.5rem;
 }
 
 .checkBox {
@@ -188,8 +170,6 @@
 .checksContainer {
     display: flex;
     margin-bottom: 10px;
-    /* cursor: pointer; */
-    /* background: -webkit-radial-gradient(#10305810, #0a0011); */
 }
 
 .mainText {

@@ -78,143 +78,16 @@ router.get("/all", (req, res) => {
 
 router.get("/:id/details", (req, res) => {
     const {id} = req.params
-    return Country.findAll({
+    return Country.findByPk(id, {
         include: {model: Activity, through: {attributes: []}},
         // attributes: ["flag", "name", "continent", "capital", "id", "subregion", "area", "population"],
-        where: {
-            id: id.toUpperCase()
-        }
     })
     .then(countries => {
         res.send(countries)
     })
+    .catch(err => {
+        console.log(err)
+    })
 })
-
-/*
-if(search){
-        if(continent === "All" || !continent){
-            if(order && param){
-                return Country.findAll({
-                    where: {
-                        name: {
-                            [Op.iLike]: `${search}%`
-                        }
-                    },
-                    order: [[param, order]],
-                    attributes: ["flag", "name", "continent", "id", "population"],
-                    include: {model: Activity, attributes: ["name"], through: {attributes: []}}
-                })
-                .then(countries => {
-                    return res.send(countries)
-                })
-            } else {
-                return Country.findAll({
-                    where: {
-                        name: {
-                            [Op.iLike]: `${search}%`
-                        }
-                    },
-                    order: [["name", "ASC"]],
-                    attributes: ["flag", "name", "continent", "id", "population"],
-                    include: {model: Activity, attributes: ["name"], through: {attributes: []}}
-                })
-                .then(countries => {
-                    return res.send(countries)
-                })
-            }
-        }
-        if(continent){
-            if(order && param){
-                return Country.findAll({
-                    where: {
-                        continent: continent,
-                        name: {
-                            [Op.iLike]: `${search}%`
-                        }
-                        
-                    },
-                    order: [[param, order]],
-                    attributes: ["flag", "name", "continent", "id", "population"],
-                    include: {model: Activity, attributes: ["name"], through: {attributes: []}}
-                })
-                .then(countries => {
-                   return res.send(countries)
-                })
-            } else {
-                return Country.findAll({
-                    where: {
-                        continent: continent,
-                        name: {
-                            [Op.iLike]: `${search}%`
-                        }
-                    },
-                    order: [["name", "ASC"]],
-                    attributes: ["flag", "name", "continent", "id", "population"],
-                    include: {model: Activity, attributes: ["name"], through: {attributes: []}}
-                })
-                .then(countries => {
-                    return res.send(countries)
-                })
-            }
-        }
-    } else {
-        if(continent === "All"){
-            if(order && param){
-                return Country.findAll({
-                    order: [[param, order]],
-                    attributes: ["flag", "name", "continent", "id", "population"],
-                    include: {model: Activity, attributes: ["name"], through: {attributes: []}}
-                })
-                .then(countries => {
-                    return res.send(countries)
-                })
-            } else {
-                return Country.findAll({
-                    order: [["name", "ASC"]],
-                    attributes: ["flag", "name", "continent", "id", "population"],
-                    include: {model: Activity, attributes: ["name"], through: {attributes: []}}
-                })
-                .then(countries => {
-                    return res.send(countries)
-                })
-            }
-        }
-        if(continent){
-            if(order && param){
-                return Country.findAll({
-                    where: {
-                        continent: continent
-                    },
-                    order: [[param, order]],
-                    attributes: ["flag", "name", "continent", "id", "population"],
-                    include: {model: Activity, attributes: ["name"], through: {attributes: []}}
-                })
-                .then(countries => {
-                   return res.send(countries)
-                })
-            } else {
-                return Country.findAll({
-                    where: {
-                        continent: continent
-                    },
-                    order: [["name", "ASC"]],
-                    attributes: ["flag", "name", "continent", "id", "population"],
-                    include: {model: Activity, attributes: ["name"], through: {attributes: []}}
-                })
-                .then(countries => {
-                    return res.send(countries)
-                })
-            }
-        }
-    }
-    return Country.findAll({
-        order: [["name", "ASC"]],
-        attributes: ["flag", "name", "continent", "id", "population"],
-        include: {model: Activity, attributes: ["name"], through: {attributes: []}}
-    })
-    .then(countries => {
-        return res.send(countries)
-    })
-*/
 
 module.exports = router;

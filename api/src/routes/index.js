@@ -1,5 +1,4 @@
 const { Router } = require('express');
-const homeRoute = require("./home")
 const countriesRoute = require("./countries")
 // const detailsRoute = require("./details")
 const activitiesRoute = require("./activities")
@@ -12,7 +11,6 @@ const router = Router();
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
 
-router.use("/", homeRoute);
 router.use("/countries", countriesRoute);
 router.use("/activities", activitiesRoute);
 

@@ -17,7 +17,7 @@ export default function Details(){
             let response = await axios.get("http://localhost:3001/countries/" + params.id + "/details")
             let data = response.data
             setDetails(data)
-            let queries = data[0]?.borders[0] !== "No Borders" ? data[0].borders.join("_") : ""
+            let queries = data?.borders[0] !== "No Borders" ? data.borders.join("_") : ""
             let response2 = await axios.get("http://localhost:3001/countries/borders?borders="+queries)
             let borderResponse = response2.data
             console.log(borderResponse)
@@ -27,13 +27,14 @@ export default function Details(){
         // eslint-disable-next-line
     }, [])
 
+    console.log(details)
 
     const handleBorders = (e) => {
         console.log(e.target)
         axios.get("http://localhost:3001/countries/"+e.target.id+"/details")
         .then(r => {
             setDetails(r.data)
-            let queries = r.data[0]?.borders[0] !== "No Borders" ? r.data[0].borders.join("_") : ""
+            let queries = r.data?.borders[0] !== "No Borders" ? r.data.borders.join("_") : ""
             axios.get("http://localhost:3001/countries/borders?borders="+queries)
             .then(re => setBorders(re.data))
         })
@@ -46,9 +47,9 @@ export default function Details(){
             <div className="detailsContainer">
                 <h2 className="fixedD">DETAILS</h2>
                 {
-                    details.length > 0 ?
+                    details.name ?
                     <>
-                        <Detail details={details[0]}/>
+                        <Detail details={details}/>
                     </>
                     : <div>Loading...</div>
                 }
@@ -77,8 +78,8 @@ export default function Details(){
                 <h2 className="fixedA">ACTIVITIES</h2>
                 <p className="space"/>
                 {
-                    details.length > 0 ?
-                    <ActivityDetails details={details[0].activities}/>
+                    details.activities ?
+                    <ActivityDetails details={details.activities}/>
                     : <></>
                 }
             </div>

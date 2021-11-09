@@ -1,37 +1,21 @@
 import axios from "axios"
+import { 
+    GET_ALL_COUNTRIES, 
+    GET_COUNTRIES_BY_CONTINENT_ORDER_NAME, 
+    CREATE_ACTIVITY, 
+    GET_COUNTRIES_BY_CONTINENT_ORDER_POPULATION 
+} from "../utils/constants"
+
 export function getAllCountries() { // EN EL FORM
     return function (dispatch){
         axios.get("http://localhost:3001/countries/all")
         .then(countries => {
             dispatch({
-                type: "GET_ALL_COUNTRIES",
+                type: GET_ALL_COUNTRIES,
                 payload: countries.data
             })
         })
         .catch(err => console.log(err))
-    }
-}
-
-export function getCountriesByContinent(continent){  // EN APP
-    return function (dispatch){
-        if(continent === "All"){
-            axios.get("http://localhost:3001/countries/all")
-            .then(countries => {
-                dispatch({
-                    type: "GET_ALL_COUNTRIES",
-                    payload: countries.data
-                })
-            })
-        } else {
-            axios.get(`http://localhost:3001/countries/continent/${continent}`)
-            .then(countries => {
-                dispatch({
-                    type: "GET_COUNTRIES_BY_CONTINENT_ORDER_NAME",
-                    payload: countries.data
-                })
-            })
-            .catch(err => console.log(err))
-        }
     }
 }
 
@@ -40,7 +24,7 @@ export function createActivity(activity){ // EN EL FORM
         axios.post("http://localhost:3001/activities", activity)
         .then(activity => {
             dispatch({
-                type: "CREATE_ACTIVITY",
+                type: CREATE_ACTIVITY,
                 payload: activity.data
             })
         })
@@ -57,12 +41,12 @@ export function allRoutes(search, continent, param, order, activities) {
         .then(countries => {
             if(param === "population"){
                 dispatch({
-                    type: "GET_COUNTRIES_BY_CONTINENT_ORDER_POPULATION",
+                    type: GET_COUNTRIES_BY_CONTINENT_ORDER_POPULATION,
                     payload: {countries: countries.data, order: {[param]: order}}
                 })
             } else {
                 dispatch({
-                    type: "GET_COUNTRIES_BY_CONTINENT_ORDER_NAME",
+                    type: GET_COUNTRIES_BY_CONTINENT_ORDER_NAME,
                     payload: {countries: countries.data, order: {[param]: order}}
                 })
             }

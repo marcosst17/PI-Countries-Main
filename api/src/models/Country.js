@@ -31,11 +31,14 @@ module.exports = (sequelize) => {
     area: {
       type: DataTypes.INTEGER,
       get(){
-        return this.getDataValue('area') + " Km2";
+        return this.getDataValue('area')?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.') + " Km2";
       }
     },
     population: {
       type: DataTypes.INTEGER,
+      get(){
+        return this.getDataValue('population')?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')
+      }
     },
     timezone: {
       type: DataTypes.ARRAY(DataTypes.STRING),

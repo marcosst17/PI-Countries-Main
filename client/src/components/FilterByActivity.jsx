@@ -13,7 +13,7 @@ export default function FilterByActivity({activitySt, handleFilterAct}){
                 activitySt.length > 0 ?
                 activitySt.map(el => {
                     return (
-                        <div className="checksContainer">
+                        <div className="checksContainer" key={el}>
                             <input className="checkBox" type="radio" name="activities" value={el} id={el} onChange={handleFilterAct}></input>
                             <label htmlFor={el} className="labelAct">{el}</label>
                             <br/>

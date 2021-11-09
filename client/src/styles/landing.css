@@ -5,7 +5,7 @@
 .landing h1 {
     animation: fadeIn 2s ease-out;
     position: absolute;
-    top: 20%;
+    top: -10%;
     left: 20%;
     font-size: 8rem;
     font-family: 'Indie Flower';
@@ -17,7 +17,7 @@
 }
 
 #landingApp {
-    top: 35%;
+    top: 5%;
     left: 30%;
 }
 
@@ -39,15 +39,9 @@
     font-size: 6rem;
     font-weight: bold;
     text-decoration: none;
-/*     background: -webkit-linear-gradient(#FFFFFF, #146C94);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; */
     font-family: 'Balsamiq Sans';
-    /* animation: fadeInStart 2s ease-out; */
     color: white;
     background: black;
-    /* animation: start 1s linear; */
 }
 
 .landing p::before {
