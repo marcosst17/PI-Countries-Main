@@ -2,7 +2,6 @@
 
 export default function ActivityDetails({details}) {
     return (
-        
         <div>
             {
                 details.length > 0 ?
