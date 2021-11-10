@@ -281,8 +281,13 @@
     }
     .filtersContainer .label {
         width: 100px;
+        height: 15px;
         margin-right: 0;
         margin-left: 0;
+        font-size: 0.8rem;
+    }
+    .searchContainer {
+        margin-top: 0;
     }
     .searchContainer label {
         left: 4rem;

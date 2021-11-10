@@ -36,12 +36,18 @@
 .landing p {
     margin: 0;
     position: absolute;
+/*     top: 80%;
+    left: 42.5%; */
     font-size: 6rem;
     font-weight: bold;
     text-decoration: none;
     font-family: 'Balsamiq Sans';
     color: white;
     background: black;
+    /* background: -webkit-linear-gradient(#eee, #333);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: fadeInStart 2s ease-out; */
 }
 
 .landing p::before {
@@ -52,7 +58,7 @@
 }
 
 .span {
-    /* background: linear-gradient(113.5001723098901deg, rgba(6, 227, 250,1) 5.736111111111111%,rgba(229, 151, 64,1) 96.29166666666666%); */
+    background: linear-gradient(113.5001723098901deg, rgba(6, 227, 250,1) 5.736111111111111%,rgba(229, 151, 64,1) 96.29166666666666%);
     background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(213,208,213,1) 15%, rgba(134,140,181,1) 57%, rgba(134,137,222,1) 100%);
     position: absolute;
     width: 288.8px;

@@ -107,7 +107,7 @@ function Countries() {
                 }
             </div>
             <div className="paginationContainer">
-                <Pagination totalPages={pages} handlePageChange={handlePageChange} handleForward={handleForward} handleBackward={handleBackward}/>
+                <Pagination totalPages={pages} handlePageChange={handlePageChange} handleForward={handleForward} handleBackward={handleBackward} currentPage={page}/>
             </div>
         </div>
     )
