@@ -1,0 +1,144 @@
+.aboutContainer {
+    font-family: 'Yatra One';
+    /* background: blue; */
+    color: lightgray;
+    padding: 3rem;
+    height: 100vh;
+    margin: 0;
+    animation: container 2s linear;
+}
+
+.aboutTitle {
+    font-size: 3rem;
+}
+
+.titleContainer h2 {
+    margin-bottom: 0px;
+}
+
+.titleContainer h3 {
+    margin-top: 0px;
+}
+
+.aboutSubContainer .outLinks {
+    /* text-decoration: none; */
+    color: white;
+    font-weight: bold;
+}
+
+.aboutContainer .outLinks:hover {
+    background: rgb(255,255,255);
+    background: linear-gradient(70deg, rgba(255,255,255,1) 0%, rgba(213,208,213,1) 5%, rgba(103,113,184,1) 43%, rgba(36,42,201,1) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.titleContainer {
+    border-bottom: 5px solid rgb(98, 119, 235);
+    width: 700px;
+    margin: 0 auto;
+}
+
+.aboutSubContainer {
+    background: -webkit-radial-gradient(#10305810, #0a0011);
+    border-radius: 30px;
+    box-shadow: 0px 0px 20px 5px rgba(67,87,179,0.67) inset;
+    -webkit-box-shadow: 0px 0px 20px 5px rgba(67,87,179,0.67) inset;
+    -moz-box-shadow: 0px 0px 20px 5px rgba(67,87,179,0.67) inset;
+    width: 50%;
+    max-width: 60%;
+    margin: 3rem auto;
+    padding: 1rem 3rem;
+    /* animation: container 2s linear; */
+}
+
+.aboutSubContainer .aboutTitle {
+    margin-top: 1rem;
+    margin-bottom: 0;
+}
+
+.aboutSubContainer h2 {
+    margin-top: 0;
+}
+
+.aboutProject {
+    margin-top: 1.5rem;
+    margin-bottom: 3rem;
+    /* background: green; */
+    width: 100%;
+}
+
+.logosContainer {
+    margin-top: 2rem;
+}
+.logosContainer img {
+    width: 64px;
+    margin: 0 20px;
+    transition: all 0.25s linear;
+}
+
+.logosContainer img:hover {
+    transform: scale(1.1)
+}
+
+.goBackAbout {
+    /* background: lightgray; */
+    width: 300px;
+    margin: 0 auto;
+    height: 50px;
+}
+
+.goBackAbout button {
+    /* width: 250px;
+    height: 45px; */
+    outline: none;
+    border: none;
+    font-size: 2rem;
+    color: rgb(98, 119, 235);
+    background: -webkit-radial-gradient(#10305810, #0a0011);
+    border-radius: 15px;
+    box-shadow: 0px 0px 20px 5px rgba(67,87,179,0.67) inset;
+    -webkit-box-shadow: 0px 0px 20px 5px rgba(67,87,179,0.67) inset;
+    -moz-box-shadow: 0px 0px 20px 5px rgba(67,87,179,0.67) inset;
+    padding: 15px 50px;
+    cursor: pointer;
+    transition: all 0.25s linear;
+}
+
+.goBackAbout button:hover {
+    box-shadow: 0px 0px 30px 10px rgba(67,87,179,0.67) inset;
+    -webkit-box-shadow: 0px 0px 30px 10px rgba(67,87,179,0.67) inset;
+    -moz-box-shadow: 0px 0px 30px 10px rgba(67,87,179,0.67) inset;
+    transform: scale(1.1);
+}
+
+
+.gradient {
+    background: rgb(255,255,255);
+    background: linear-gradient(70deg, rgba(255,255,255,1) 0%, rgba(213,208,213,1) 5%, rgba(103,113,184,1) 43%, rgba(36,42,201,1) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+@keyframes container {
+    /* from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    } */
+    0% {
+        opacity: 0;
+        transform: translate3d(+100%, 0, 0);
+    }
+    50% {
+        opacity: 0.5;
+        transform: translate3d(-15%, 0, 0);
+    }
+    100% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
