@@ -298,6 +298,10 @@
         color: white;
         font-weight: bold;
     }
+    .ordersContainer .mainText {
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
 }
 @media (max-width: 1152px){
     .filtersContainer .label {

@@ -142,3 +142,20 @@
         transform: translate3d(0, 0, 0);
     }
 }
+
+@media (max-height: 1000px){
+    .aboutSubContainer {
+        height: 70%;
+        font-size: 0.8rem;
+        padding-top: 1px;
+        margin-bottom: 10px;
+    }
+    .aboutTitle {
+        font-size: 2rem;
+    }
+    .aboutProject {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+}

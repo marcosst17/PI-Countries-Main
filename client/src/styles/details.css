@@ -188,6 +188,7 @@
     background: -webkit-radial-gradient(#10305810, #0a0011);
     border-radius: 30px;
     animation: top 1s ease-out;
+    position: relative;
 }
 
 #borders {
@@ -265,5 +266,27 @@
     to {
         opacity: 1;
         transform: translate3d(0, 0, 0);
+    }
+}
+
+@media (max-width: 1980px){
+
+}
+
+@media (max-width: 1440px){
+    .detailsContainer {
+        margin-left: 3rem;
+    }
+    .flagsContainer img {
+        max-width: 250px;
+    }
+    .flagsContainer, .infoContainer {
+        margin-left: 2rem;
+        margin-right: 2rem;
+        margin: 30px auto;
+        width: 600px;
+    }
+    .borderContainer .fixedA {
+        left: 59.3%;
     }
 }
