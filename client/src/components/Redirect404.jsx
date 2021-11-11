@@ -10,7 +10,7 @@ export default function Redirect404() {
                 <img src={gif} alt="soy el gif" />
             </Link>
             <Link to="/" className="link">
-                <h1 className="goBack">Go Back</h1>
+                <button className="goBack">Go Back</button>
             </Link>
         </div>
     )
