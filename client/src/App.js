@@ -9,6 +9,7 @@ import { getAllCountries } from './redux/actions';
 import NavBar from './components/NavBar';
 import Landing from './components/Landing';
 import Redirect404 from './components/Redirect404';
+import About from './components/About';
 
 function App() {
   let dispatch = useDispatch()
@@ -21,6 +22,9 @@ function App() {
       <Switch>
         <Route exact path="/">
           <Landing/>
+        </Route>
+        <Route exact path="/about">
+          <About/>
         </Route>
         <Route exact path="/countries">
           <NavBar/>

@@ -4,6 +4,11 @@ import "../styles/landing.css"
 
 export default function Landing() {
     return <div className="landing">
+        <div className="aboutNav">
+        <Link to="/about" className="link">
+            <h3 className="about">ABOUT</h3>
+        </Link>
+        </div>
         <h1 id="landingCountries">COUNTRIES</h1>
         <h1 id="landingApp">APP</h1>
         <Link to="/countries">

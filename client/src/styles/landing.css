@@ -5,24 +5,25 @@
 .landing h1 {
     animation: fadeIn 2s ease-out;
     position: absolute;
-    top: -5%;
-    left: 20%;
+    top: 20%;
+    left: 31%;
     font-size: 8rem;
     font-family: 'Indie Flower';
     background: rgb(255,255,255);
-    background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(213,208,213,1) 15%, rgba(134,140,181,1) 57%, rgba(134,137,222,1) 100%);
+    background: linear-gradient(70deg, rgba(255,255,255,1) 0%, rgba(213,208,213,1) 5%, rgba(103,113,184,1) 43%, rgba(36,42,201,1) 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    font-family: 'Yatra One';
 }
 
 #landingApp {
-    top: 10%;
-    left: 30%;
+    top: 35%;
+    left: 44%;
 }
 
 .neonWrapper {
-    filter: brightness(250%);
+    filter: brightness(300%);
     position: absolute;
     top: 80%;
     left: 42.5%;
@@ -58,8 +59,9 @@
 }
 
 .span {
-    background: linear-gradient(113.5001723098901deg, rgba(6, 227, 250,1) 5.736111111111111%,rgba(229, 151, 64,1) 96.29166666666666%);
-    background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(213,208,213,1) 15%, rgba(134,140,181,1) 57%, rgba(134,137,222,1) 100%);
+    /* background: linear-gradient(113.5001723098901deg, rgba(6, 227, 250,1) 5.736111111111111%,rgba(229, 151, 64,1) 96.29166666666666%);
+    background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(213,208,213,1) 15%, rgba(134,140,181,1) 57%, rgba(134,137,222,1) 100%); */
+    background: linear-gradient(70deg, rgba(255,255,255,1) 0%, rgba(213,208,213,1) 5%, rgba(103,113,184,1) 43%, rgba(36,42,201,1) 100%);
     position: absolute;
     width: 288.8px;
     height: 115px;
@@ -78,6 +80,24 @@
     mix-blend-mode: color-dodge;
     animation: dodge-area 3s linear infinite;
 }
+
+.aboutNav {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.about {
+    margin-right: 3rem;
+    margin-top: 1rem;
+    font-size: 2.5rem;
+    background: rgb(255,255,255);
+    background: linear-gradient(70deg, rgba(255,255,255,1) 0%, rgba(213,208,213,1) 5%, rgba(103,113,184,1) 43%, rgba(36,42,201,1) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: 'Yatra One';
+}
+
 
 @keyframes dodge-area {
     to {

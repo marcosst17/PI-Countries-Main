@@ -10,14 +10,28 @@
     font-size: 16px;
     font-weight: bold;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    width: 60px;
+    position: relative;
 }
-
+/* 
 .pagination button:focus {
     color: white;
+} */
+
+.pagination .active {
+    background: -webkit-radial-gradient(#4d72a010, #635cc0);
 }
 
-.active {
-    color: red;
+.pagination .next {
+    position: absolute;
+    left: 90%;
+    width: 100px;
+}
+
+.pagination .prev {
+    position: absolute;
+    left: 30.5%;
+    width: 100px;
 }
 
 @media (max-width: 1440px){
