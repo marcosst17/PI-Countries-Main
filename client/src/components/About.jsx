@@ -14,7 +14,7 @@ export default function About() {
                 </div>
                 <div className="aboutProject">
                     <h1 className="gradient">About This Project</h1>
-                    <h3>A Single Page Application made with React, it loads a PostgreSQL Database using Sequelize with the information from
+                    <h3>A Single Page Application made with React, it loads a PostgreSQL Database with the information from
                         the <a href="https://restcountries.com/" className="outLinks" target="_blank" rel="noreferrer">RestCountries API</a>. I then add Tourist Activities for each country and display them on the Details Page of that country.
                     </h3>
                 </div>

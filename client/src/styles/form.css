@@ -259,6 +259,17 @@
     border-radius: 15px;
 }
 
+.errorP {
+    color: red;
+    font-size: 1.2rem;
+    margin-top: 10px;
+}
+
+#name.error, #duration.error {
+    color: black;
+    background: rgb(196, 131, 131);
+}
+
 @keyframes selectedCard {
     from {
         opacity: 0;

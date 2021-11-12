@@ -3,6 +3,7 @@ import {useEffect, useState} from 'react';
 import { getAllCountries, createActivity } from '../redux/actions';
 import { useHistory } from "react-router-dom";
 import "../styles/form.css"
+import validate from './validate';
 
 export default function ActivityForm(){
     let countries = useSelector(state => state.countries);
@@ -21,6 +22,8 @@ export default function ActivityForm(){
         countryId: [],
     })
 
+    const [errors, setErrors] = useState({})
+
     const [country, setCountry] = useState([])
 
     const handleChange = (e) => {
@@ -28,6 +31,10 @@ export default function ActivityForm(){
             ...input,
             [e.target.name]: e.target.value
         })
+        setErrors(validate({
+            ...input,
+            [e.target.name]: e.target.value
+        }))
     }
 
     const handleCountryId = (e) => {
@@ -70,12 +77,22 @@ export default function ActivityForm(){
             <div className="parent">
                 <div className="div1">
                     <div className="nameForm">
-                        <input type="text" name="name" id="name" value={input.name} onChange={(e) => handleChange(e)} required />
+                        <input type="text" name="name" id="name" value={input.name} onChange={(e) => handleChange(e)} required className={errors.name && "error"}/>
                         <label htmlFor="name">Name</label>
+                        {
+                            errors.name && (
+                                <p className="errorP">{errors.name}</p>
+                            )
+                        }
                     </div>
                     <div className="durationForm">
-                        <input type="text" name="duration" id="duration" value={input.duration} onChange={(e) => handleChange(e)} required/>
+                        <input type="text" name="duration" id="duration" value={input.duration} onChange={(e) => handleChange(e)} required className={errors.duration && "error"}/>
                         <label htmlFor="duration">Duration</label>
+                        {
+                            errors.duration && (
+                                <p className="errorP">{errors.duration}</p>
+                            )
+                        }
                     </div>
                 </div>
                 <div className="div3">
@@ -156,7 +173,7 @@ export default function ActivityForm(){
                         </div>
                     </div>
                     <div className="submitForm">
-                        <button type="submit">Submit</button>
+                        <button type="submit" disabled={errors.name || errors.duration ? true : false}>Submit</button>
                     </div>
                 </div>
             </div>
