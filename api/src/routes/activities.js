@@ -3,9 +3,7 @@ const router = Router();
 const {Activity, Country} = require("../db")
 
 router.get("/", (req, res) => {
-    return Activity.findAll({
-        include: Country
-    })
+    return Activity.findAll()
     .then(activities => {
         res.send(activities)
     })

@@ -12,7 +12,7 @@ router.get("/borders", (req, res) => {
         attributes: ["name", "flag", "id"],
         where: {
             id: {
-                [Op.or]: [borders],
+                [Op.or]: typeof borders === "string" ? [borders] : [...borders],
             }
         }
     })
@@ -23,7 +23,7 @@ router.get("/borders", (req, res) => {
 
 router.get("/", (req, res) => {
     const search = req.query.search || ""
-    const continent = req.query.continent || {[Op.iLike]: "%"}
+    const continent = req.query.continent || "All"
     let activities = req.query.activities
     if(activities !== "all"){
         return Country.findAll({
@@ -36,9 +36,7 @@ router.get("/", (req, res) => {
             // order: [[param, order]],
             attributes: ["flag", "name", "continent", "id", "population"],
             include: {model: Activity, attributes: ["name"], through: {attributes: []}, where: {
-                name: {
-                    [Op.or]: typeof activities === "string" ? [activities] : [...activities]
-                }
+                name: activities
             }}
         })
         .then(countries => {
@@ -65,8 +63,7 @@ router.get("/", (req, res) => {
 router.get("/all", (req, res) => {
     return Country.findAll({
         order: [['name', 'ASC']],
-        attributes: ["flag", "name", "continent", "id", "population"],
-        include: {model: Activity, attributes: ["name"], through: {attributes: []}}
+        attributes: ["flag", "name", "id"],
     })
     .then(countries => {
         res.send(countries)
