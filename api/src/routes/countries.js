@@ -1,7 +1,7 @@
 const { Router } = require('express');
 const { Op, Sequelize } = require('sequelize');
 const {Country, Activity} = require("../db");
-const router = Router();
+const router = Router(); 
 
 router.get("/borders", (req, res) => {
     let borders = req.query.borders;
@@ -9,7 +9,7 @@ router.get("/borders", (req, res) => {
         borders = borders.split("_")
     }
     return Country.findAll({
-        attributes: ["name", "flag", "id"],
+        attributes: ["name", "flag", "id", "population"],
         where: {
             id: {
                 [Op.or]: typeof borders === "string" ? [borders] : [...borders],
@@ -63,7 +63,7 @@ router.get("/", (req, res) => {
 router.get("/all", (req, res) => {
     return Country.findAll({
         order: [['name', 'ASC']],
-        attributes: ["flag", "name", "id"],
+        attributes: ["flag", "name", "id", "population"],
     })
     .then(countries => {
         res.send(countries)
