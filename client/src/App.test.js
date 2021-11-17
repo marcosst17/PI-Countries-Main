@@ -20,6 +20,7 @@ test('Landing Page has a button START', () => {
   expect(linkElement).toBeInTheDocument();
 });
 
+
 test('Countries should have a search bar', () => {
   render(
     <MemoryRouter>
